@@ -1,0 +1,53 @@
+image: atlassian/default-image:3
+
+definitions:
+  steps:
+    - step: &lint-only-step
+        name: Lint application only
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+    - step: &lint-build-step-development
+        name: Lint & build application development
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+          - yarn run build:development
+        artifacts:
+          - .next/**
+    - step: &lint-build-step-production
+        name: Lint & build application production
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+          - yarn run build:production
+        artifacts:
+          - .next/**
+
+pipelines:
+  pull-requests:
+      main:
+        - step: *lint-build-step-production
+      '**':
+        - step: *lint-build-step-development
+  branches:
+    main:
+      - step: *lint-build-step-production
+      - step: *upload-build
+      - step:
+          name: 'Deploy to Production'
+          clone:
+            enabled: false
+          deployment: production
+          trigger: manual
+    develop:
+      - step: *lint-build-step-development
+      - step: *upload-build
+      - step:
+          name: 'Deploy to Staging'
+          clone:
+            enabled: false
+          deployment: staging
