@@ -4,7 +4,7 @@ export interface PageMetaProps {
   keywords?: string;
 }
 
-const PageMetaProps: { [key: string]: PageMetaProps } = {
+const pageMetaProps: { [key: string]: PageMetaProps } = {
   home: {
     title: 'hajdenpun.com: Kërkoni punën e ëndrrave tuaja shpejt dhe me lehtësi',
     description:
@@ -12,3 +12,5 @@ const PageMetaProps: { [key: string]: PageMetaProps } = {
     keywords: 'hajdenpun, kerko pune',
   },
 };
+
+export default pageMetaProps;
