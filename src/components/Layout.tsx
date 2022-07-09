@@ -3,7 +3,7 @@ import { Container, useTheme } from '@mui/material';
 
 import MetaHead from '@/components/MetaHead';
 import Header from '@/components/Header';
-// import Footer from '@/components/Footer';
+import Footer from '@/components/Footer';
 import { PageMetaProps } from '@/config/pages';
 
 type Props = {
@@ -23,6 +23,7 @@ export default function Layout({ children, meta, spacing = 0, maxWidth = 'lg' }:
       <Container disableGutters tw="flex-grow" maxWidth={maxWidth}>
         {children}
       </Container>
+      <Footer />
     </div>
   );
 }
