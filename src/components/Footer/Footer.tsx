@@ -62,7 +62,7 @@ export default function Footer() {
           <div tw="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
             {navigation.map((item, index) => (
               <div tw="pb-6" key={index}>
-                <h3 tw="text-base font-medium text-white tracking-wider uppercase">{item.name}</h3>
+                <h3 tw="text-base font-bold text-white tracking-wider uppercase">{item.name}</h3>
                 {item.children && (
                   <ul tw="mt-4 space-y-2">
                     {item.children.map((item2) => (
