@@ -11,6 +11,7 @@ import deLocale from 'date-fns/locale/de';
 import StylesGlobal from '@/components/GlobalStyles';
 import Api from '@/lib/api';
 import theme from '@/config/theme';
+import { AuthProvider } from '@/providers/AuthProvider';
 
 const clientSideEmotionCache = createEmotionCache();
 interface HnpAppProps extends AppProps {
