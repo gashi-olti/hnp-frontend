@@ -43,12 +43,6 @@ export default class MyDocument extends Document {
           ></script> */}
           <Main />
           <NextScript />
-          <script
-            id="trustbadge-script"
-            type="text/javascript"
-            defer
-            src="/js/trustedshops.js"
-          ></script>
         </body>
       </Html>
     );
