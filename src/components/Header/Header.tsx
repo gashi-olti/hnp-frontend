@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
+import PersonIcon from '@mui/icons-material/Person';
+import AddPersonIcon from '@mui/icons-material/PersonAddAlt1';
+import { useTranslation } from 'react-i18next';
+
+import theme from '@/config/theme';
+import { useAuth } from '@/providers/AuthProvider';
+
 import CustomLink from '../CustomLink';
 import { Images } from '../Icons/Images';
 import LinkButton from '../LinkButton';
+
 import Navigation from './Navigation';
-import PersonIcon from '@mui/icons-material/Person';
-import AddPersonIcon from '@mui/icons-material/PersonAddAlt1';
-import theme from '@/config/theme';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/providers/AuthProvider';
 import UserPopover from './UserPopover';
 
 export default function Header() {

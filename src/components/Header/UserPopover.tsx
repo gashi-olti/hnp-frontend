@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { ProfileTypes } from '@/interfaces/user.interface';
-import { useAuth } from '@/providers/AuthProvider';
-import { Box, Button, ListItemText, Menu, MenuItem, Popover, Typography } from '@mui/material';
+import { Box, Button, ListItemText, MenuItem, Popover, Typography } from '@mui/material';
 import { TFunction, useTranslation } from 'next-i18next';
 import PersonIcon from '@mui/icons-material/Person';
+
+import { useAuth } from '@/providers/AuthProvider';
+import { ProfileTypes } from '@/interfaces/user.interface';
+
 import CustomLink from '../CustomLink';
 
 interface UserPopoverProps {}
 
-const getSections = (t: TFunction, profile: ProfileTypes) => {
+const getSections = (t: TFunction) => {
   const companySections = [
     {
       label: t('common:my profile'),
@@ -57,7 +59,7 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
         open={open}
       >
         {![ProfileTypes.Admin].includes(userProfile) &&
-          getSections(t, userProfile).map((link) => (
+          getSections(t).map((link) => (
             <CustomLink key={link.label} href={link.href}>
               <MenuItem sx={{ ':hover': { backgroundColor: '#fddbba' } }}>
                 <ListItemText
