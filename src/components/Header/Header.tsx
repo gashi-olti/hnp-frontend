@@ -51,7 +51,7 @@ export default function Header() {
                   <Grid item mr={2}>
                     <LinkButton variant="buttonLight" href="/signup">
                       <Typography variant="h5" color="inherit">
-                        {t('common:signup')}
+                        {t('common:sign up')}
                       </Typography>
                       <AddPersonIcon
                         color="inherit"
@@ -64,7 +64,7 @@ export default function Header() {
                   <Grid item>
                     <LinkButton variant="buttonWhite" href="/login">
                       <Typography variant="h5" color="inherit">
-                        {t('common:login')}
+                        {t('common:sign in')}
                       </Typography>
                       <PersonIcon color="inherit" sx={{ marginLeft: theme.spacing(1) }} />
                     </LinkButton>
