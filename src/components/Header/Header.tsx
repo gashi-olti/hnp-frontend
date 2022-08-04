@@ -14,6 +14,7 @@ import LinkButton from '../LinkButton';
 
 import Navigation from './Navigation';
 import UserPopover from './UserPopover';
+import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
   const { t } = useTranslation(['common']);
@@ -48,10 +49,10 @@ export default function Header() {
             </Grid>
           </div>
           {mounted && !isInitialising && (
-            <div tw="flex flex-row justify-end my-4 lg:(my-0)">
+            <div tw="flex flex-row justify-end items-center my-4 lg:(my-0)">
               {!isAuthenticated ? (
                 <>
-                  <Grid item mr={2}>
+                  <Grid item mr={1}>
                     <LinkButton variant="buttonLight" href="/signup">
                       <Typography variant="h5" color="inherit">
                         {t('common:sign up')}
@@ -71,6 +72,9 @@ export default function Header() {
                       </Typography>
                       <PersonIcon color="inherit" sx={{ marginLeft: theme.spacing(1) }} />
                     </LinkButton>
+                  </Grid>
+                  <Grid item>
+                    <LanguageSelector />
                   </Grid>
                 </>
               ) : (
