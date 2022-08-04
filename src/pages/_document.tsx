@@ -9,7 +9,7 @@ import createEmotionCache from '@/utils/createEmotionCache';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="al">
+      <Html lang="sq">
         <Head>
           {process.env.BUILD_ENV === 'development' && <meta name="robots" content="none" />}
           <link
