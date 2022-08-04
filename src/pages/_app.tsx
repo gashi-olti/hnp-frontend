@@ -3,11 +3,11 @@ import { appWithTranslation } from 'next-i18next';
 import { SWRConfig } from 'swr';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+// import { LocalizationProvider } from '@mui/lab';
+// import DateAdapter from '@mui/lab/AdapterDateFns';
+// import { sq } from 'date-fns/locale';
+
 import createEmotionCache from '@/utils/createEmotionCache';
-import { LocalizationProvider } from '@mui/lab';
-import DateAdapter from '@mui/lab/AdapterDateFns';
-import deLocale from 'date-fns/locale/de';
-// import alLocale from 'date-fnd/locale/al';
 import StylesGlobal from '@/components/GlobalStyles';
 import Api from '@/lib/api';
 import theme from '@/config/theme';
@@ -25,12 +25,15 @@ function MyApp(props: HnpAppProps) {
     <SWRConfig value={{ fetcher: Api.get }}>
       <CacheProvider value={emotionCache}>
         <MuiThemeProvider theme={theme}>
-          <LocalizationProvider dateAdapter={DateAdapter} locale={deLocale}>
-            <StylesGlobal />
-            <AuthProvider>
-              <Component {...pageProps} />
-            </AuthProvider>
-          </LocalizationProvider>
+          {/**
+           * NO SUPPORT FOR ALBANIAN LANGUAGE YET
+           */}
+          {/* <LocalizationProvider dateAdapter={DateAdapter} locale={sq}> */}
+          <StylesGlobal />
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
+          {/* </LocalizationProvider> */}
         </MuiThemeProvider>
       </CacheProvider>
     </SWRConfig>

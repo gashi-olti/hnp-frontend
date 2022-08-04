@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
+import Image from 'next/image';
 
 import CustomLink from '@/components/CustomLink';
 
 import { Images } from '../Icons/Images';
-import Image from 'next/image';
 
 interface NavItem {
   id?: string;
