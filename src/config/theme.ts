@@ -399,7 +399,7 @@ const overrides = (theme: Theme): Components => ({
         },
       },
       sizeSmall: {
-        borderRadius: twinTheme`borderRadius.xl`,
+        borderRadius: twinTheme`borderRadius.sm`,
       },
     },
   },
@@ -458,7 +458,7 @@ const overrides = (theme: Theme): Components => ({
     defaultProps: {
       MenuProps: {
         anchorOrigin: {
-          vertical: 55,
+          vertical: 45,
           horizontal: 'left',
         },
         transformOrigin: {
@@ -672,6 +672,13 @@ const overrides = (theme: Theme): Components => ({
         '&.Mui-completed': {
           fontWeight: 300,
         },
+      },
+    },
+  },
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        borderRadius: twinTheme`borderRadius.sm`,
       },
     },
   },
