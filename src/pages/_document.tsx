@@ -37,10 +37,6 @@ export default class MyDocument extends Document {
           {(this.props as any).emotionStyleTags}
         </Head>
         <body>
-          {/* <script
-            src="https://consent.cookiefirst.com/banner.js"
-            data-cookiefirst-key="d03a0342-7362-4b09-977c-83d028c4368c"
-          ></script> */}
           <Main />
           <NextScript />
         </body>
