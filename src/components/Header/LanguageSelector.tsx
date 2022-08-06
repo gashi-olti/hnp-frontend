@@ -4,6 +4,20 @@ import { useRouter } from 'next/router';
 
 import theme from '@/config/theme';
 
+const MenuProps = {
+  MenuProps: {
+    anchorOrigin: {
+      vertical: 20,
+      horizontal: 'left',
+    },
+  },
+  PaperProps: {
+    style: {
+      borderRadius: 5,
+    },
+  },
+};
+
 export default function LanguageSelector() {
   const router = useRouter();
   const [language, setLanguage] = React.useState<string>(router.locale ?? 'sq');
@@ -34,8 +48,11 @@ export default function LanguageSelector() {
             paddingX: 1.5,
           },
           '& .MuiInputBase-root': {
+            borderRadius: 50,
             '& > fieldset': {
               borderColor: 'white',
+              borderWidth: '1px !important',
+              borderRadius: 50,
             },
           },
           margin: 0,
@@ -45,6 +62,9 @@ export default function LanguageSelector() {
             color: theme.palette.primary.contrastText,
             height: 32,
           },
+        }}
+        SelectProps={{
+          MenuProps: MenuProps,
         }}
       >
         <MenuItem
