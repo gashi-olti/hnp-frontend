@@ -12,7 +12,7 @@ interface ListBannerProps {
 export default function ListBanner({ header, subHeader, content, children }: ListBannerProps) {
   return (
     <Box
-      mb={8}
+      my={2}
       tw="bg-gradient-to-r from-sky to-cyan"
       sx={{ position: 'relative', overflow: 'hidden' }}
     >
