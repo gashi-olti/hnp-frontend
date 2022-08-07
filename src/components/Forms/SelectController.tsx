@@ -36,7 +36,7 @@ export default function SelectController({
           SelectProps={{
             multiple: multiple,
             renderValue(selected: any) {
-              return selected.join(', ');
+              return selected.join(' | ');
             },
             MenuProps: menuProps,
           }}
