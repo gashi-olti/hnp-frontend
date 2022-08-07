@@ -57,7 +57,7 @@ const getCityList = (data: Location[], countryChecked: string[], cityChecked: st
 
 interface HomeFilterProps extends GridProps {}
 
-export default function HomeFilter({ ...props }: HomeFilterProps) {
+export default function JobsFilter({ ...props }: HomeFilterProps) {
   const { t } = useTranslation(['common']);
   const [jobTypeChecked, setJobTypeChecked] = React.useState<string[]>([]);
   const [jobCategoryChecked, setJobCategoryChecked] = React.useState<string[]>([]);
