@@ -1,0 +1,5 @@
+{
+  "email": "Ju lutemi shkruani një e-mail adresë të vlefshme",
+  "required": "Fushë e detyrueshme - ju lutemi shkruani të dhënat e kërkuara",
+  "max length n": "Hyrja duhet të ketë një maksimum prej {{ n }} karakteresh"
+}
