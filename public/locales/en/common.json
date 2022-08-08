@@ -5,5 +5,8 @@
   "country": "Country",
   "city": "City",
 
-  "new badge": "New"
+  "new badge": "New",
+
+  "something went wrong": "Something went wrong with the request. Please try again.",
+  "not found": "Not Found"
 }

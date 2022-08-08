@@ -5,5 +5,8 @@
   "country": "Shteti",
   "city": "Qyteti",
 
-  "new badge": "E Re"
+  "new badge": "E Re",
+
+  "something went wrong": "Diçka shkoi keq me kërkesën. Ju lutemi provoni përsëri.",
+  "not found": "Nuk u gjet"
 }
