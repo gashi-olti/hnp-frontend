@@ -1,4 +1,9 @@
 {
   "sign in": "Sign in",
-  "sign up": "Sign up"
+  "sign up": "Sign up",
+
+  "country": "Country",
+  "city": "City",
+
+  "new badge": "New"
 }
