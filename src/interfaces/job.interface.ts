@@ -12,3 +12,11 @@ export interface JobPositionType {
   category: string;
   job_position: JobPositionInterface[];
 }
+
+export interface JobModel {
+  uuid: string;
+  title: string;
+  description: string;
+
+  new_post?: boolean | null;
+}
