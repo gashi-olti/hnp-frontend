@@ -12,6 +12,7 @@ import StylesGlobal from '@/components/GlobalStyles';
 import Api from '@/lib/api';
 import theme from '@/config/theme';
 import { AuthProvider } from '@/providers/AuthProvider';
+import { NotificationProvider } from '@/providers/NotificationProvider';
 
 const clientSideEmotionCache = createEmotionCache();
 interface HnpAppProps extends AppProps {
@@ -30,9 +31,11 @@ function MyApp(props: HnpAppProps) {
            */}
           {/* <LocalizationProvider dateAdapter={DateAdapter} locale={sq}> */}
           <StylesGlobal />
-          <AuthProvider>
-            <Component {...pageProps} />
-          </AuthProvider>
+          <NotificationProvider>
+            <AuthProvider>
+              <Component {...pageProps} />
+            </AuthProvider>
+          </NotificationProvider>
           {/* </LocalizationProvider> */}
         </MuiThemeProvider>
       </CacheProvider>
