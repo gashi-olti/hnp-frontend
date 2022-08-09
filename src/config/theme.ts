@@ -678,7 +678,7 @@ const overrides = (theme: Theme): Components => ({
   MuiPaper: {
     styleOverrides: {
       root: {
-        borderRadius: twinTheme`borderRadius.sm`,
+        borderRadius: twinTheme`borderRadius.md`,
       },
     },
   },
@@ -692,10 +692,10 @@ export default createTheme({
 const rteRootStyle = {
   borderWidth: 2,
   borderColor: appTheme.palette.grey[500],
-  borderRadius: 20,
+  borderRadius: twinTheme`borderRadius.md`,
 };
 const rteEditorStyle = {
-  height: '350px',
+  height: '250px',
   overflowY: 'hidden',
   marginBottom: '10px',
   marginTop: '1px',
