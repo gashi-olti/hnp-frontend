@@ -73,15 +73,17 @@ export default function Header() {
                       <PersonIcon color="inherit" sx={{ marginLeft: theme.spacing(1) }} />
                     </LinkButton>
                   </Grid>
-                  <Grid item>
-                    <LanguageSelector />
-                  </Grid>
                 </>
               ) : (
-                <Grid item>
-                  <UserPopover />
-                </Grid>
+                <>
+                  <Grid item>
+                    <UserPopover />
+                  </Grid>
+                </>
               )}
+              <Grid item>
+                <LanguageSelector />
+              </Grid>
             </div>
           )}
         </Grid>
