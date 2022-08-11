@@ -40,8 +40,6 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
     setOpen(false);
   };
 
-  if (!userProfile) return null;
-
   return (
     <>
       <Button onClick={handleOpen} ref={anchorRef} variant="buttonSuccess">
@@ -58,7 +56,7 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
         onClose={handleClose}
         open={open}
       >
-        {![ProfileTypes.Admin].includes(userProfile) &&
+        {![ProfileTypes.Admin].includes(userProfile ?? 0) &&
           getSections(t).map((link) => (
             <CustomLink key={link.label} href={link.href}>
               <MenuItem sx={{ ':hover': { backgroundColor: '#fddbba' } }}>
