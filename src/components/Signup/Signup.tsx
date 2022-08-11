@@ -43,8 +43,8 @@ export default function Signup() {
   return (
     <Container tw="justify-center my-16">
       <form onSubmit={handleSubmit(submitForm)}>
-        <Grid container columnSpacing={2} maxWidth="xl">
-          <Grid item xs={12} mb={2}>
+        <Grid container spacing={2} maxWidth="xl">
+          <Grid item xs={12}>
             <Typography variant="h2" component="span">
               {t('login-signup:signup title')}
             </Typography>
@@ -77,7 +77,7 @@ export default function Signup() {
               disabled={isLoading}
             />
           </Grid>
-          <Grid container item xs={12} justifyContent="flex-end" my={4}>
+          <Grid container item xs={12} justifyContent="flex-end">
             <LoadingButton type="submit" color="primary" variant="contained" isLoading={isLoading}>
               {t('login-signup:signup button')}
             </LoadingButton>
