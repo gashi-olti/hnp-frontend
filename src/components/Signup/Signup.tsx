@@ -34,7 +34,12 @@ export default function Signup() {
     try {
       await register(data);
 
-      router.push('/company/profile');
+      router.push({
+        pathname: '/company/profile',
+        query: {
+          from_page: 'signup',
+        },
+      });
     } catch (error) {
       handleErrors(error, data);
     }
