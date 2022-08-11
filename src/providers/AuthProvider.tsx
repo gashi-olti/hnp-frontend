@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
 import useSWR from 'swr';
 
 import Api from '@/lib/api';
@@ -42,7 +41,6 @@ export const useAuth = () => React.useContext(AuthContext);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const router = useRouter();
-  const { t } = useTranslation('common');
 
   const { data: user, mutate: mutateUser, error, isValidating } = useSWR<User>('auth');
   const [userProfile, setUserProfile] = React.useState<ProfileTypes>();

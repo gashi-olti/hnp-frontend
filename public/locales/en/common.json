@@ -1,4 +1,16 @@
 {
+  "email": "E-Mail Address",
+  "password": "Password",
+  "confirm password": "Confirm Password",
+
   "sign in": "Sign in",
-  "sign up": "Sign up"
+  "sign up": "Sign up",
+
+  "country": "Country",
+  "city": "City",
+
+  "new badge": "New",
+
+  "something went wrong": "Something went wrong with the request. Please try again.",
+  "not found": "Not Found"
 }

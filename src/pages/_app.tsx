@@ -3,15 +3,16 @@ import { appWithTranslation } from 'next-i18next';
 import { SWRConfig } from 'swr';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+// import { LocalizationProvider } from '@mui/lab';
+// import DateAdapter from '@mui/lab/AdapterDateFns';
+// import { sq } from 'date-fns/locale';
+
 import createEmotionCache from '@/utils/createEmotionCache';
-import { LocalizationProvider } from '@mui/lab';
-import DateAdapter from '@mui/lab/AdapterDateFns';
-import deLocale from 'date-fns/locale/de';
-// import alLocale from 'date-fnd/locale/al';
 import StylesGlobal from '@/components/GlobalStyles';
 import Api from '@/lib/api';
 import theme from '@/config/theme';
 import { AuthProvider } from '@/providers/AuthProvider';
+import { NotificationProvider } from '@/providers/NotificationProvider';
 
 const clientSideEmotionCache = createEmotionCache();
 interface HnpAppProps extends AppProps {
@@ -25,12 +26,17 @@ function MyApp(props: HnpAppProps) {
     <SWRConfig value={{ fetcher: Api.get }}>
       <CacheProvider value={emotionCache}>
         <MuiThemeProvider theme={theme}>
-          <LocalizationProvider dateAdapter={DateAdapter} locale={deLocale}>
-            <StylesGlobal />
+          {/**
+           * NO SUPPORT FOR ALBANIAN LANGUAGE YET
+           */}
+          {/* <LocalizationProvider dateAdapter={DateAdapter} locale={sq}> */}
+          <StylesGlobal />
+          <NotificationProvider>
             <AuthProvider>
               <Component {...pageProps} />
             </AuthProvider>
-          </LocalizationProvider>
+          </NotificationProvider>
+          {/* </LocalizationProvider> */}
         </MuiThemeProvider>
       </CacheProvider>
     </SWRConfig>

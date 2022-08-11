@@ -382,6 +382,7 @@ const overrides = (theme: Theme): Components => ({
         '& .MuiOutlinedInput-notchedOutline': {
           borderColor: theme.palette.grey[500],
           borderWidth: 2,
+          borderRadius: twinTheme`borderRadius.md`,
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
           borderWidth: 2,
@@ -399,7 +400,7 @@ const overrides = (theme: Theme): Components => ({
         },
       },
       sizeSmall: {
-        borderRadius: twinTheme`borderRadius.xl`,
+        borderRadius: twinTheme`borderRadius.sm`,
       },
     },
   },
@@ -415,14 +416,18 @@ const overrides = (theme: Theme): Components => ({
         transform: `translate(25px, 16px) scale(1);`,
         '&.MuiInputLabel-shrink': {
           color: theme.palette.text.secondary,
-          backgroundColor: 'transparent',
-          transform: `translate(25px, -20px) scale(0.8);`,
+          backgroundColor: theme.palette.primary.contrastText,
+          paddingLeft: '4px',
+          paddingRight: '4px',
+          transform: `translate(25px, -10px) scale(0.8);`,
         },
         '&.MuiInputLabel-sizeSmall': {
           transform: `translate(25px,8px) scale(1)`,
           '&.MuiInputLabel-shrink': {
             color: theme.palette.text.secondary,
-            backgroundColor: 'transparent',
+            backgroundColor: theme.palette.primary.contrastText,
+            paddingLeft: '4px',
+            paddingRight: '4px',
             transform: `translate(25px, -20px) scale(0.8);`,
           },
         },
@@ -458,7 +463,7 @@ const overrides = (theme: Theme): Components => ({
     defaultProps: {
       MenuProps: {
         anchorOrigin: {
-          vertical: 55,
+          vertical: 60,
           horizontal: 'left',
         },
         transformOrigin: {
@@ -540,11 +545,6 @@ const overrides = (theme: Theme): Components => ({
       contained: {
         borderRadius: twinTheme`borderRadius.full`,
       },
-    },
-  },
-  MuiList: {
-    defaultProps: {
-      disablePadding: true,
     },
   },
   MuiListItem: {
@@ -675,6 +675,13 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        borderRadius: twinTheme`borderRadius.md`,
+      },
+    },
+  },
 });
 
 export default createTheme({
@@ -685,10 +692,10 @@ export default createTheme({
 const rteRootStyle = {
   borderWidth: 2,
   borderColor: appTheme.palette.grey[500],
-  borderRadius: 20,
+  borderRadius: twinTheme`borderRadius.md`,
 };
 const rteEditorStyle = {
-  height: '350px',
+  height: '250px',
   overflowY: 'hidden',
   marginBottom: '10px',
   marginTop: '1px',
