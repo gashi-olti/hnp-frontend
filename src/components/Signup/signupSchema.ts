@@ -4,7 +4,7 @@ import * as yup from 'yup';
 export type SignupFields = {
   email: string;
   password: string;
-  confirm_password: string;
+  confirm_password?: string;
   //   company_name?: string;
   //   company_size?: string;
   //   company_description?: string;
