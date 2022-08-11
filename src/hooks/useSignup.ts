@@ -16,8 +16,13 @@ export default function useSignup() {
 
   const register = async (data: SignupFields, type: ProfileTypes = 1) => {
     setIsLoading(true);
+
     try {
-      const user = await Api.post('register', { ...data, profile_type: type });
+      const user = await Api.post('register', {
+        email: data.email,
+        password: data.password,
+        profile_type: type,
+      });
       mutateUser(user);
 
       openSnackbar(t('login-signup:signup success'));
