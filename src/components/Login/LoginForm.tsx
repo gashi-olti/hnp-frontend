@@ -46,7 +46,7 @@ export default function LoginForm({ onClick }: LoginProps) {
   };
 
   return (
-    <Container tw="justify-center my-16">
+    <Container tw="justify-center">
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
