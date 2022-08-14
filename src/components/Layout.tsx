@@ -9,16 +9,16 @@ import { PageMetaProps } from '@/config/pages';
 type Props = {
   children: NonNullable<React.ReactNode>;
   meta?: PageMetaProps;
-  spacing?: number;
+  my?: number;
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | false;
 };
 
-export default function Layout({ children, meta, maxWidth = 'lg' }: Props) {
+export default function Layout({ children, meta, my, maxWidth = 'lg' }: Props) {
   return (
     <div tw="flex flex-col h-screen">
       <MetaHead meta={meta} />
       <Header />
-      <Container disableGutters tw="flex-grow" maxWidth={maxWidth}>
+      <Container disableGutters tw="flex-grow" maxWidth={maxWidth} sx={{ my: my }}>
         {children}
       </Container>
       <Footer />
