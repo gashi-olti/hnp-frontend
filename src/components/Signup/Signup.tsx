@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 
 import useFormErrors from '@/hooks/useFormErrors';
 import useSignup from '@/hooks/useSignup';
+import { ProfileTypes } from '@/interfaces/user.interface';
 
 import InputController from '../Forms/InputController';
 import PasswordInput from '../Forms/PasswordInput';
@@ -13,7 +14,11 @@ import LoadingButton from '../LoadingButton';
 
 import { schema, SignupFields } from './signupSchema';
 
-export default function Signup() {
+type SignupProps = {
+  profileType: ProfileTypes;
+};
+
+export default function Signup({ profileType }: SignupProps) {
   const { t } = useTranslation(['common', 'validation', 'login-signup']);
   const { register, isLoading } = useSignup();
   const router = useRouter();
@@ -32,21 +37,23 @@ export default function Signup() {
 
   const submitForm = async (data: SignupFields) => {
     try {
-      await register(data);
+      await register(data, profileType);
 
-      router.push({
-        pathname: '/company/profile',
-        query: {
-          from_page: 'signup',
-        },
-      });
+      if (profileType === ProfileTypes.Company) {
+        router.push({
+          pathname: '/company/profile',
+          query: {
+            from_page: 'signup',
+          },
+        });
+      }
     } catch (error) {
       handleErrors(error, data);
     }
   };
 
   return (
-    <Container tw="justify-center my-16">
+    <Container tw="justify-center">
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} maxWidth="xl">
           <Grid item xs={12}>
