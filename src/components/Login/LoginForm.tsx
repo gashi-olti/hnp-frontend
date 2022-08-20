@@ -80,7 +80,7 @@ export default function LoginForm({ onClick }: LoginProps) {
               onClick={onClick}
               disabled={isInitialising}
             >
-              {t('forgot password title')}
+              {t('forgot password')}
             </Button>
           </Grid>
           <Grid item xs={12}>

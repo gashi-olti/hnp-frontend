@@ -379,6 +379,7 @@ const overrides = (theme: Theme): Components => ({
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
+        borderRadius: twinTheme`borderRadius.md`,
         '& .MuiOutlinedInput-notchedOutline': {
           borderColor: theme.palette.grey[500],
           borderWidth: 2,

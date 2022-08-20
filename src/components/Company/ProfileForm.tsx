@@ -16,15 +16,19 @@ export default function ProfileForm() {
     <Container>
       {router.query.from_page === 'signup' && (
         <Grid container spacing={2} my={4} mb={12}>
-          <Grid item xs={12}>
+          <Grid container item>
             <Grid container item tw="items-center">
               <Typography variant="h2">{t('profile:company profile create success')}</Typography>
-              <CheckCircleIcon sx={{ color: theme.palette.success.dark }} tw="ml-4" />
+              <CheckCircleIcon sx={{ color: theme.palette.success.dark }} tw="mr-0 sm:ml-4" />
             </Grid>
             <Typography paragraph>{t('profile:company profile create success notice')}</Typography>
             {!user?.isVerified && (
               <Grid container item mt={4}>
-                <InfoIcon fontSize="small" tw="mr-2" sx={{ color: theme.palette.error.dark }} />
+                <InfoIcon
+                  fontSize="small"
+                  tw="mr-0 sm:mr-2"
+                  sx={{ color: theme.palette.error.dark }}
+                />
                 <Typography paragraph>
                   {t('profile:company profile create verify email notice')}
                 </Typography>
