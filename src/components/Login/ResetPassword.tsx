@@ -37,7 +37,7 @@ export default function ResetPassword() {
   const submitForm = async (data: ResetPasswordField) => {
     try {
       await resetPassword(data.password, query.token as string);
-      push('/'); // should change to /company or /company/profile
+      push('/login');
     } catch (error) {
       handleErrors(error, data);
     }
