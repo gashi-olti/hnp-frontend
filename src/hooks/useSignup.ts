@@ -45,9 +45,23 @@ export default function useSignup() {
     }
   };
 
+  const resendEmail = async (body: string): Promise<User> => {
+    setIsLoading(true);
+    try {
+      const data = await Api.post('verify/resend', { email: body });
+
+      openSnackbar(t('login-signup:email resent successfully'));
+      return data;
+    } catch (error) {
+      setIsLoading(false);
+      throw error;
+    }
+  };
+
   return {
     register,
     verify,
+    resendEmail,
     isLoading,
   };
 }

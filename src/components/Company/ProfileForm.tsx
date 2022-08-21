@@ -21,7 +21,9 @@ export default function ProfileForm() {
               <Typography variant="h2">{t('profile:company profile create success')}</Typography>
               <CheckCircleIcon sx={{ color: theme.palette.success.dark }} tw="mr-0 sm:ml-4" />
             </Grid>
-            <Typography paragraph>{t('profile:company profile create success notice')}</Typography>
+            <Typography variant="h4" paragraph>
+              {t('profile:company profile create success notice')}
+            </Typography>
             {!user?.isVerified && (
               <Grid container item mt={4}>
                 <InfoIcon
