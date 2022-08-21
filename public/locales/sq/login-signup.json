@@ -19,5 +19,7 @@
   "no account signup": "Nuk ke llogari? Regjistrohu tani",
 
   "verify email error title": "Llogaria juaj tashmë është aktivizuar",
-  "verify email error": "Ju e keni verifikuar tashmë llogarinë tuaj."
+  "verify email error": "Ju e keni verifikuar tashmë llogarinë tuaj.",
+
+  "email resent successfully": "Email-i është ridërguar me sukses"
 }
