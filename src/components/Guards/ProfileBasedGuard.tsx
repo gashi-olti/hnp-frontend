@@ -31,10 +31,7 @@ const ProfileBasedGuard: FC<ProfileBasedGuardProps> = (props) => {
     if (userProfile === ProfileTypes.Company) {
       if (user && !user.isVerified)
         router.push({
-          pathname: '/company/profile',
-          query: {
-            from_page: 'signup',
-          },
+          pathname: '/company/signupsuccess',
         });
 
       router.push(redirectTo ? redirectTo : '/company');

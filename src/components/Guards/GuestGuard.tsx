@@ -16,10 +16,7 @@ const GuestGuard: FC<GuestGuardProps> = ({ children }) => {
     if (user) {
       if (!user.isVerified) {
         router.push({
-          pathname: '/company/profile',
-          query: {
-            from_page: 'signup',
-          },
+          pathname: '/company/signupsuccess',
         });
         return null;
       }
