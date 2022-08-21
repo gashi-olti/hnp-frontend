@@ -19,5 +19,7 @@
   "no account signup": "No account? Signup now",
 
   "verify email error title": "Your account has been activated",
-  "verify email error": "You have already verified your account."
+  "verify email error": "You have already verified your account.",
+
+  "email resent successfully": "Email has been resent successfully"
 }
