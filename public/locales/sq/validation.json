@@ -2,5 +2,6 @@
   "email": "Ju lutemi shkruani një e-mail adresë të vlefshme",
   "required": "Fushë e detyrueshme - ju lutemi shkruani të dhënat e kërkuara",
   "max length n": "Hyrja duhet të ketë një maksimum prej {{ n }} karakteresh",
-  "passwords must match": "Fjalëkalimet duhet të përputhen"
+  "passwords must match": "Fjalëkalimet duhet të përputhen",
+  "no valid url": "Ju lutemi shkruani një URL të vlefshme"
 }
