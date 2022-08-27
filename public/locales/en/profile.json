@@ -4,5 +4,6 @@
   "company profile create verify email notice": "You received an email from us. Please verify your registration.",
   "send verification link": "Didn't receive the verification email?",
   "resend verification email": "Resend email",
-  "resend again in": "Resend again in"
+  "resend again in": "Resend again in",
+  "profile title": "Profile"
 }
