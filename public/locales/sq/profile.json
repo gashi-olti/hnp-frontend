@@ -4,5 +4,6 @@
   "company profile create verify email notice": "Ju kemi dërguar një email. Ju lutem konfirmoni regjistrimin tuaj.",
   "send verification link": "Nuk e pranuat emailin e verifikimit?",
   "resend verification email": "Ridërgo emailin",
-  "resend again in": "Ridërgo prap brenda"
+  "resend again in": "Ridërgo prap brenda",
+  "profile title": "Profili"
 }
