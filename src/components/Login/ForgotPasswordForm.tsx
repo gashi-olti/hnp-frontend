@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 
@@ -7,6 +7,8 @@ import useFormErrors from '@/hooks/useFormErrors';
 import useForgotPassword from '@/hooks/usePasswordReset';
 import InputController from '@/components/Forms/InputController';
 import LoadingButton from '@/components/LoadingButton';
+
+import CustomContainer from '../Common/CustomContainer';
 
 import { forgotSchema } from './schema';
 
@@ -45,7 +47,7 @@ export default function ForgotPasswordForm({ onClick, onSuccess }: ForgotPasswor
   };
 
   return (
-    <Container maxWidth="lg">
+    <CustomContainer>
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -82,6 +84,6 @@ export default function ForgotPasswordForm({ onClick, onSuccess }: ForgotPasswor
           </Grid>
         </Grid>
       </form>
-    </Container>
+    </CustomContainer>
   );
 }
