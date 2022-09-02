@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
@@ -12,6 +12,7 @@ import InputController from '@/components/Forms/InputController';
 import PasswordInput from '@/components/Forms/PasswordInput';
 
 import LoadingButton from '../LoadingButton';
+import CustomContainer from '../Common/CustomContainer';
 
 import { loginSchema, LoginFields } from './schema';
 
@@ -46,7 +47,7 @@ export default function LoginForm({ onClick }: LoginProps) {
   };
 
   return (
-    <Container tw="justify-center">
+    <CustomContainer padding={6} tw="justify-center">
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -102,6 +103,6 @@ export default function LoginForm({ onClick }: LoginProps) {
           </Grid>
         </Grid>
       </form>
-    </Container>
+    </CustomContainer>
   );
 }
