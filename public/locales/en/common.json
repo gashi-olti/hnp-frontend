@@ -18,5 +18,8 @@
   "seconds": "seconds",
 
   "drag and drop": "Drag & Drop",
-  "or click here": "or select here"
+  "or click here": "or select here",
+
+  "cover tooltip": "You can only upload square photos in the following formats: JPG, PNG, TIFF",
+  "company media items": "You can upload images about your company, e.g. offices images. It is not mandatory. \nAllowed formats: JPG, PNG, TIFF."
 }
