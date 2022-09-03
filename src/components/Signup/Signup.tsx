@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
@@ -54,20 +54,16 @@ export default function Signup({ profileType }: SignupProps) {
   };
 
   return (
-    <CustomContainer tw="justify-center">
+    <CustomContainer title={t('login-signup:signup title')} tw="justify-center">
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2} maxWidth="xl">
-          <Grid item xs={12}>
-            <Typography variant="h2" component="span">
-              {t('login-signup:signup title')}
-            </Typography>
-          </Grid>
           <Grid item xs={12}>
             <InputController
               control={control}
               errors={errors}
               label={t('common:email')}
               name="email"
+              type="email"
               autoFocus
               disabled={isLoading}
             />

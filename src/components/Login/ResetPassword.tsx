@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 import usePasswordReset from '@/hooks/usePasswordReset';
 import useFormErrors from '@/hooks/useFormErrors';
@@ -45,12 +45,9 @@ export default function ResetPassword() {
   };
 
   return (
-    <CustomContainer>
+    <CustomContainer title={t('login-signup:reset password title')}>
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h2">{t('login-signup:reset password title')}</Typography>
-          </Grid>
           <Grid item xs={12}>
             <PasswordInput
               control={control}
