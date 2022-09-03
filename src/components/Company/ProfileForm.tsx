@@ -209,6 +209,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
                 errors={errors}
                 label={t('common:phone number')}
                 name="phone"
+                type="tel"
               />
             </Grid>
             <Grid item xs={12} my={2}>
@@ -218,7 +219,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <MediaSingle entity="cover" name="cover" />
+              <MediaSingle entity="company" name="cover" />
             </Grid>
             <Grid item xs={12} mt={4}>
               <Typography variant="h3">
@@ -227,7 +228,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <MediaMulti entity="cover" name="media" maxItems={4} />
+              <MediaMulti entity="company" name="media" maxItems={4} />
             </Grid>
             <Grid item container mt={4} xs={12} justifyContent="flex-end">
               <LoadingButton type="submit" color="primary" variant="contained" isLoading={false}>
