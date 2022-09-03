@@ -345,11 +345,6 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
-  MuiButtonBase: {
-    defaultProps: {
-      disableRipple: true,
-    },
-  },
   MuiInputBase: {
     styleOverrides: {
       root: {
@@ -531,16 +526,6 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
-  // MuiFormLabel: {
-  //   defaultProps: {
-  //     focused: false,
-  //   },
-  //   styleOverrides: {
-  //     root: {
-  //       color: 'currentColor',
-  //     },
-  //   },
-  // },
   MuiButtonGroup: {
     styleOverrides: {
       contained: {
@@ -582,13 +567,11 @@ const overrides = (theme: Theme): Components => ({
   },
   MuiCheckbox: {
     defaultProps: {
-      disableRipple: true,
       color: 'secondary',
     },
   },
   MuiRadio: {
     defaultProps: {
-      disableRipple: true,
       color: 'secondary',
     },
   },
@@ -617,9 +600,6 @@ const overrides = (theme: Theme): Components => ({
     },
   },
   MuiTab: {
-    defaultProps: {
-      disableRipple: true,
-    },
     styleOverrides: {
       root: {
         textTransform: 'uppercase',
