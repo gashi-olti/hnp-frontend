@@ -18,5 +18,8 @@
   "seconds": "sekondash",
 
   "drag and drop": "Drag & Drop",
-  "or click here": "ose përzgjedh këtu"
+  "or click here": "ose përzgjedh këtu",
+
+  "cover tooltip": "Ju mund të ngarkoni vetëm foto katrore në formatet e mëposhtme: JPG, PNG, TIFF",
+  "company media items": "Ju mund të ngarkoni imazhe për kompaninë tuaj, p.sh. imazhet e zyrave. Nuk është e detyrueshme. \nFormatet e lejuara: JPG, PNG, TIFF."
 }
