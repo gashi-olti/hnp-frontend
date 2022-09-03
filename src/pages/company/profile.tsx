@@ -22,6 +22,12 @@ export default function Profile() {
 
 export const getStaticProps = async ({ locale }: { locale: any }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common', 'profile', 'validation', 'login-signup'])),
+    ...(await serverSideTranslations(locale, [
+      'common',
+      'profile',
+      'validation',
+      'login-signup',
+      'media',
+    ])),
   },
 });
