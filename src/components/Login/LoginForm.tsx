@@ -67,6 +67,7 @@ export default function LoginForm({ onClick }: LoginProps) {
               errors={errors}
               label={t('common:password')}
               name="password"
+              type="password"
               disabled={isInitialising}
             />
           </Grid>

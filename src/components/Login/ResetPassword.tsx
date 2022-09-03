@@ -54,6 +54,7 @@ export default function ResetPassword() {
               errors={errors}
               label={t('common:password')}
               name="password"
+              type="password"
               disabled={isLoading}
             />
           </Grid>
@@ -63,6 +64,7 @@ export default function ResetPassword() {
               errors={errors}
               label={t('common:confirm password')}
               name="passwordRepeat"
+              type="password"
               disabled={isLoading}
             />
           </Grid>
