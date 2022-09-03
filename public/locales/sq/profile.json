@@ -5,5 +5,20 @@
   "send verification link": "Nuk e pranuat emailin e verifikimit?",
   "resend verification email": "Ridërgo emailin",
   "resend again in": "Ridërgo prap brenda",
-  "profile title": "Profili"
+  "profile title": "Profili",
+
+  "company information": "Të dhëna në lidhje me kompaninë",
+  "company information description": "Ju lutemi futni disa informacione për kompaninë tuaj. Informacioni i dhënë do t'u shfaqet përdoruesve.",
+
+  "company name": "Emri i Kompanisë",
+  "company number": "Numri i Kompanisë",
+  "company industry": "Industria",
+  "company size": "Madhësia e Kompanisë",
+  "company founded": "Viti i Themelimit",
+  "company website": "Faqja e internetit (ueb sajti)",
+  "company description": "Përshkrimi",
+  "company specialties": "Specializimet",
+  "company logo": "Logoja e Kompanisë",
+
+  "save profile": "Ruaj profilin"
 }

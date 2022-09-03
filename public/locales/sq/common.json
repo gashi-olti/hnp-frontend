@@ -6,12 +6,17 @@
   "sign in": "Kyçu",
   "sign up": "Regjistrohu",
 
-  "country": "Shteti",
   "city": "Qyteti",
+  "postal code": "Kodi Postar",
+  "country": "Shteti",
+  "phone number": "Numri i Telefonit",
 
   "new badge": "E Re",
 
   "something went wrong": "Diçka shkoi keq me kërkesën. Ju lutemi provoni përsëri.",
   "not found": "Nuk u gjet",
-  "seconds": "sekondash"
+  "seconds": "sekondash",
+
+  "drag and drop": "Drag & Drop",
+  "or click here": "ose përzgjedh këtu"
 }

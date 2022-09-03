@@ -5,5 +5,20 @@
   "send verification link": "Didn't receive the verification email?",
   "resend verification email": "Resend email",
   "resend again in": "Resend again in",
-  "profile title": "Profile"
+  "profile title": "Profile",
+
+  "company information": "Information related to the company",
+  "company information description": "Please insert some information about your company. The given information will be shown to users.",
+
+  "company name": "Company Name",
+  "company number": "Company Number",
+  "company industry": "Industry",
+  "company size": "Company Size",
+  "company founded": "Founded",
+  "company website": "Website",
+  "company description": "Description",
+  "company specialties": "Specialties",
+  "company logo": "Company Logo",
+
+  "save profile": "Save profile"
 }
