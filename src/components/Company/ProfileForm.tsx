@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
-import { Grid, MenuItem, Typography } from '@mui/material';
+import { Grid, MenuItem, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import dynamic from 'next/dynamic';
@@ -30,6 +30,8 @@ type ProfileFormProps = {
 
 export default function ProfileForm({ company }: ProfileFormProps) {
   const { t } = useTranslation(['profile', 'common', 'validation']);
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   const defaultValues = React.useMemo(
     () => ({
@@ -76,7 +78,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
   };
 
   return (
-    <CustomContainer>
+    <CustomContainer title={t('profile:profile title')}>
       <FormProvider
         {...methods}
         control={control}
@@ -87,10 +89,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
         handleSubmit={handleSubmit}
       >
         <form onSubmit={handleSubmit(submitForm)}>
-          <Grid container columnSpacing={2}>
-            <Grid item xs={12} mb={4}>
-              <Typography variant="h2">{t('profile:profile title')}</Typography>
-            </Grid>
+          <Grid container columnSpacing={2} mt={isDesktop ? 2 : 0}>
             <Grid item xs={12}>
               <Typography variant="h3">
                 {t('profile:company information')}
@@ -215,7 +214,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
             <Grid item xs={12} my={2}>
               <Typography variant="h3">
                 {t('profile:company logo')}
-                {/* <CustomTooltip>{t('profile:company logo description')}</CustomTooltip> */}
+                <CustomTooltip>{t('common:cover tooltip')}</CustomTooltip>
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -223,8 +222,8 @@ export default function ProfileForm({ company }: ProfileFormProps) {
             </Grid>
             <Grid item xs={12} mt={4}>
               <Typography variant="h3">
-                {t('profile:company logo')}
-                <CustomTooltip>{t('profile:company logo description')}</CustomTooltip>
+                {t('profile:company media', { count: 4 - (getValues('media')?.length || 0) })}
+                <CustomTooltip>{t('common:company media items')}</CustomTooltip>
               </Typography>
             </Grid>
             <Grid item xs={12}>

@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
 
@@ -24,6 +24,8 @@ type ForgotPasswordFields = {
 export default function ForgotPasswordForm({ onClick, onSuccess }: ForgotPasswordProps) {
   const { t } = useTranslation(['login-signup', 'common']);
   const { forgotPassword, isLoading } = useForgotPassword();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
   const {
     control,
@@ -47,12 +49,9 @@ export default function ForgotPasswordForm({ onClick, onSuccess }: ForgotPasswor
   };
 
   return (
-    <CustomContainer>
+    <CustomContainer title={t('login-signup:forgot password title')}>
       <form onSubmit={handleSubmit(submitForm)}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h2">{t('login-signup:forgot password title')}</Typography>
-          </Grid>
+        <Grid container spacing={2} mt={isDesktop ? 1 : 0}>
           <Grid item xs={12}>
             <Typography variant="body1">{t('login-signup:forgot password description')}</Typography>
           </Grid>
@@ -62,6 +61,7 @@ export default function ForgotPasswordForm({ onClick, onSuccess }: ForgotPasswor
               errors={errors}
               label={t('common:email')}
               name="email"
+              type="email"
               disabled={isLoading}
             />
           </Grid>
