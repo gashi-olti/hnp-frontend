@@ -484,7 +484,6 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         borderRadius: theme.shape.borderRadius,
-        boxShadow: theme.shadows[4],
       },
     },
   },
@@ -495,13 +494,15 @@ const overrides = (theme: Theme): Components => ({
         style: {
           color: theme.palette.primary.contrastText,
           backgroundColor: theme.palette.primary.main,
+          boxShadow: theme.shadows[6],
         },
       },
       {
         props: { variant: 'secondary' },
         style: {
-          color: '#3C3C3C',
-          backgroundColor: '#f5b5d2',
+          color: theme.palette.primary.contrastText,
+          backgroundColor: theme.palette.secondary.main,
+          boxShadow: theme.shadows[6],
         },
       },
     ],
