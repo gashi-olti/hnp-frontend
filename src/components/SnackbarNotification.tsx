@@ -4,6 +4,13 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import ErrorIcon from '@mui/icons-material/Error';
 import InfoIcon from '@mui/icons-material/Info';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Slide, { SlideProps } from '@mui/material/Slide';
+
+type TransitionProps = Omit<SlideProps, 'direction'>;
+
+function TransitionRight(props: TransitionProps) {
+  return <Slide {...props} direction="left" />;
+}
 
 type SnackbarNotificationProps = {
   duration?: number;
@@ -37,9 +44,10 @@ export default function SnackbarNotification({
       key={id}
       open={open}
       onClose={onClose}
+      TransitionComponent={TransitionRight}
     >
       <Alert
-        variant="secondary"
+        variant="primary"
         severity={type}
         onClose={onClose}
         iconMapping={{
