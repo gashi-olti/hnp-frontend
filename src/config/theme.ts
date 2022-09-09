@@ -421,10 +421,10 @@ const overrides = (theme: Theme): Components => ({
           transform: `translate(25px,8px) scale(1)`,
           '&.MuiInputLabel-shrink': {
             color: theme.palette.text.secondary,
-            backgroundColor: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.grey[100],
             paddingLeft: '4px',
             paddingRight: '4px',
-            transform: `translate(25px, -20px) scale(0.8);`,
+            transform: `translate(12px, -10px) scale(0.8);`,
           },
         },
       },
