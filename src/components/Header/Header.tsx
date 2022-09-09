@@ -28,14 +28,17 @@ export default function Header() {
 
   return (
     <div tw="w-full bg-gradient-to-r from-sky to-cyan mb-4">
-      <Container tw="py-2">
+      <Container style={{ paddingLeft: 0, paddingRight: 0 }} tw="py-2">
         <Grid
           container
           item
           alignItems="center"
           justifyContent="space-between"
-          tw="flex flex-col flex-col-reverse items-stretch lg:(flex-row items-center)"
+          tw="flex flex-col items-stretch lg:(flex-row items-center)"
         >
+          <Grid container item xs={12} justifyContent="flex-end">
+            <LanguageSelector />
+          </Grid>
           <div tw="flex flex-col sm:(flex-row items-center)">
             <Grid item>
               <h1 tw="py-2 lg:py-4">
@@ -81,9 +84,6 @@ export default function Header() {
                   </Grid>
                 </>
               )}
-              <Grid item>
-                <LanguageSelector />
-              </Grid>
             </div>
           )}
         </Grid>

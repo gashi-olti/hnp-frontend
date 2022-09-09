@@ -52,7 +52,6 @@ export default function LanguageSelector() {
             '& > fieldset': {
               borderColor: 'white',
               borderWidth: '1px !important',
-              borderRadius: 50,
             },
           },
           margin: 0,

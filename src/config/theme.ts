@@ -664,6 +664,23 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
+  MuiAvatar: {
+    styleOverrides: {
+      root: {
+        width: theme.spacing(4.5),
+        height: theme.spacing(4.5),
+      },
+    },
+  },
+  MuiTooltip: {
+    styleOverrides: {
+      tooltip: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+        borderRadius: twinTheme`borderRadius.md`,
+      },
+    },
+  },
 });
 
 export default createTheme({
