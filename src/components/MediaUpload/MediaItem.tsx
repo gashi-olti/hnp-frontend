@@ -29,9 +29,7 @@ export default function MediaItem({
   type,
   title,
   disabled = false,
-  credit,
   namePrefix,
-  showCreditInfo,
   removeItem,
   changeImage,
 }: MediaItemProps) {
@@ -55,8 +53,8 @@ export default function MediaItem({
   };
 
   return (
-    <div tw="relative flex py-3 pl-4 pr-10 bg-gray-100">
-      <span tw="absolute top-2 right-2">
+    <div tw="relative flex py-3 pl-4 pr-10 bg-gray-100 h-32 border-2 border-gray-200 rounded-md">
+      <span tw="absolute top-11 right-2">
         <IconButton
           onClick={handleRemove}
           size="small"
@@ -93,7 +91,7 @@ export default function MediaItem({
           </span>
         )}
       </div>
-      <div tw="ml-4 flex-auto">
+      <div tw="ml-4 flex-auto mt-4 mr-2">
         <InputController
           name={`${namePrefix}.title`}
           control={control}
@@ -105,19 +103,6 @@ export default function MediaItem({
           disabled={disabled}
           hiddenLabel
         />
-        {showCreditInfo && (
-          <InputController
-            name={`${namePrefix}.credit`}
-            control={control}
-            errors={errors}
-            defaultValue={credit}
-            label={t('common:source reference')}
-            aria-label={t('common:source reference')}
-            size="small"
-            disabled={disabled}
-            hiddenLabel
-          />
-        )}
       </div>
     </div>
   );

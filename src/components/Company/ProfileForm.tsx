@@ -229,7 +229,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
                 <CustomTooltip>{t('common:company media items')}</CustomTooltip>
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} mt={2}>
               <MediaMulti entity="company" name="media" maxItems={4} />
             </Grid>
             <Grid item container mt={4} xs={12} justifyContent="flex-end">

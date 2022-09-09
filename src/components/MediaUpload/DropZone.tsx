@@ -2,6 +2,7 @@ import * as React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useTranslation } from 'next-i18next';
 import { Typography, Button, CircularProgress } from '@mui/material';
+import UploadFileRoundedIcon from '@mui/icons-material/UploadFileRounded';
 
 import { useNotification } from '@/providers/NotificationProvider';
 
@@ -12,7 +13,7 @@ type StyledElement = {
 
 const DropArea = styled.div<StyledElement>(({ hover, disabled }) => [
   tw`relative w-full flex flex-col items-center justify-center text-black px-4 py-6`,
-  tw`bg-white border-2 border-dotted border-gray-300 rounded-md`,
+  tw`bg-gray-100 border-2 border-dotted border-gray-300 rounded-md`,
   tw`transition-colors`,
   hover && tw`border-gray-400 text-sky-700`,
 
@@ -116,6 +117,7 @@ export default function DropZone({
     >
       {loading && <CircularProgress size={40} tw="absolute!" />}
       <DropAreaInner hover={dropzoneHover} disabled={disabled}>
+        <UploadFileRoundedIcon fontSize="large" tw="text-gray-600" />
         <Typography variant="h4" tw="mb-3!">
           {t('drag and drop')}
         </Typography>

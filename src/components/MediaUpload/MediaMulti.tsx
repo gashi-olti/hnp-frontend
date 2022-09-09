@@ -3,7 +3,6 @@ import { useFormContext, useFieldArray } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Typography } from '@mui/material';
 
 import { MediaItemType } from '@/interfaces/media.interface';
 import useMediaApi from '@/hooks/useMediaApi';
@@ -114,9 +113,6 @@ function MediaMultiInner({
       </div>
       {fields.length < maxItems && (
         <DropZone accept={accept} onChange={addFile} loading={processing} disabled={disabled} />
-      )}
-      {fields.length > 1 && (
-        <Typography variant="body2">{t('media:change order of media')}</Typography>
       )}
     </div>
   );
