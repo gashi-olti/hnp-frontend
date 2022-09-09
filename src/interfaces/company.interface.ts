@@ -17,4 +17,6 @@ export interface CompanyProfile {
   phone?: string;
   cover?: MediaItemType | null;
   media?: MediaItemType[] | null;
+
+  slug?: string;
 }
