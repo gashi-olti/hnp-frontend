@@ -47,9 +47,6 @@ export default function Header() {
                 </CustomLink>
               </h1>
             </Grid>
-            <Grid item>
-              <Navigation />
-            </Grid>
           </div>
           {mounted && !isInitialising && (
             <div tw="flex flex-row justify-end items-center my-4 lg:(my-0)">
@@ -79,6 +76,9 @@ export default function Header() {
                 </>
               ) : (
                 <>
+                  <Grid item>
+                    <Navigation />
+                  </Grid>
                   <Grid item>
                     <UserPopover />
                   </Grid>
