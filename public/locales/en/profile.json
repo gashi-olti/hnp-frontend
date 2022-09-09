@@ -21,5 +21,6 @@
   "company logo": "Company Logo",
   "company media": "Images about the company. Add {{ count }} more media",
 
-  "save profile": "Save profile"
+  "save profile": "Save profile",
+  "company profile update success": "Profile updated successfully"
 }
