@@ -22,5 +22,7 @@
   "company media": "Imazhe rreth kompanisë. Shto {{ count }} imazhe të tjera",
 
   "save profile": "Ruaj profilin",
-  "company profile update success": "Profili u përditësua me sukses"
+  "company profile update success": "Profili u përditësua me sukses",
+
+  "account settings": "Cilësimet e llogarisë"
 }

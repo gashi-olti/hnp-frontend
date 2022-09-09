@@ -5,6 +5,7 @@
 
   "sign in": "Sign in",
   "sign up": "Sign up",
+  "logout": "Logout",
 
   "city": "City",
   "postal code": "Postal Code",
@@ -15,6 +16,8 @@
   "are you sure": "Are you sure?",
   "ok": "Ok",
   "cancel": "Cancel",
+  "my profile": "My profile",
+  "my posts": "My posts",
 
   "something went wrong": "Something went wrong with the request. Please try again.",
   "not found": "Not Found",
