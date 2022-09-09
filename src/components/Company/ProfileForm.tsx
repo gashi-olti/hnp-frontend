@@ -11,6 +11,7 @@ import InputController from '@/components/Forms/InputController';
 import SelectController from '@/components/Forms/SelectController';
 import companySize, { CompanySizeInterface } from '@/config/companySize';
 import LoadingButton from '@/components/LoadingButton';
+import useCompanyApi from '@/hooks/useCompanyApi';
 
 import CountrySelector from '../Forms/CountrySelector';
 import MediaSingle from '../MediaUpload/MediaSingle';
@@ -30,6 +31,7 @@ type ProfileFormProps = {
 
 export default function ProfileForm({ company }: ProfileFormProps) {
   const { t } = useTranslation(['profile', 'common', 'validation']);
+  const { updateProfile, isLoading } = useCompanyApi();
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -49,7 +51,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
       country: company?.country ?? '',
       phone: company?.phone ?? '',
       cover: company?.cover ?? null,
-      media: company?.media?.sort((a, b) => (a?.order || 0) - (b?.order || 0)),
+      media: company?.media?.sort((a, b) => (a?.order || 0) - (b?.order || 0)) ?? [],
     }),
     [company]
   );
@@ -71,7 +73,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
 
   const submitForm = async (data: CompanyProfileForm) => {
     try {
-      // await updateProfile(data);
+      await updateProfile(data);
     } catch (err) {
       handleErrors(err, data);
     }
@@ -231,7 +233,12 @@ export default function ProfileForm({ company }: ProfileFormProps) {
               <MediaMulti entity="company" name="media" maxItems={4} />
             </Grid>
             <Grid item container mt={4} xs={12} justifyContent="flex-end">
-              <LoadingButton type="submit" color="primary" variant="contained" isLoading={false}>
+              <LoadingButton
+                type="submit"
+                color="primary"
+                variant="contained"
+                isLoading={isLoading}
+              >
                 {t('profile:save profile')}
               </LoadingButton>
             </Grid>

@@ -1,2 +1,2 @@
-export { default } from './ProfileForm';
+export { default } from './Company';
 export { default as SignupSuccessComponent } from './SignupSuccess';
