@@ -48,7 +48,7 @@ export default function MediaItem({
   const handleRemove = async () => {
     openConfirmation({
       title: t('common:are you sure'),
-      content: t('media:really delete the media'),
+      content: t('media:delete the media'),
     }).then(() => {
       removeItem();
     });
