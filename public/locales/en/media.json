@@ -1,3 +1,7 @@
 {
-  "file type not allowed": "File type not allowed. Please select another one."
+  "file type not allowed": "File type not allowed. Please select another one.",
+  "change order of media": "Change the order of your uploaded files by dragging the image",
+  "delete the media": "Do you really want to remove the picture?",
+  "error while uploading": "Something went wrong, please try again.",
+  "file title": "Title"
 }

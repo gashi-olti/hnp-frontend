@@ -21,5 +21,6 @@
   "company logo": "Logoja e kompanisë",
   "company media": "Imazhe rreth kompanisë. Shto {{ count }} imazhe të tjera",
 
-  "save profile": "Ruaj profilin"
+  "save profile": "Ruaj profilin",
+  "company profile update success": "Profili u përditësua me sukses"
 }
