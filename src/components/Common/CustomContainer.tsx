@@ -14,7 +14,7 @@ export default function CustomContainer({ title, padding = 4, children }: Custom
   return (
     <Container
       sx={{
-        border: isDesktop ? `1px solid ${theme.palette.grey[300]}` : 'none',
+        border: `1px solid ${theme.palette.grey[300]}`,
         borderRadius: 0.4,
         padding: isDesktop ? padding : 2,
         // boxShadow: '0px 0px 1px 0px rgba(0,0,0,0.75)',
@@ -23,7 +23,7 @@ export default function CustomContainer({ title, padding = 4, children }: Custom
       <Box
         sx={{
           position: isDesktop ? 'absolute' : 'inline-block',
-          marginTop: isDesktop ? -6.1 : 0,
+          marginTop: isDesktop ? -6.1 : -4,
           paddingX: isDesktop ? 1 : 0,
           backgroundColor: 'white',
           paddingBottom: !isDesktop ? 2 : 0,

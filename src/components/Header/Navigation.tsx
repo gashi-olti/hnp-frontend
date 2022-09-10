@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import tw from 'twin.macro';
 import styled from '@emotion/styled';
+import { useTranslation } from 'next-i18next';
 
 import Link from '@/components/CustomLink';
 
@@ -16,18 +17,19 @@ const NavLink = styled(Link)<NavLinkProps>(({ active }: NavLinkProps) => [
 ]);
 
 export default function Navigation() {
+  const { t } = useTranslation(['common']);
   const router = useRouter();
 
   return (
     <nav tw="text-white uppercase font-bold text-base md:(mr-4 mt-0)">
       <NavLink href="/" active={router.pathname === '/'}>
-        Home
+        {t('common:home')}
       </NavLink>
-      <NavLink href="/create" active={router.pathname === '/artists'}>
-        Publiko Konkurs
+      <NavLink href="/company/post/create" active={router.pathname === '/artists'}>
+        {t('common:create post')}
       </NavLink>
       <NavLink href="/contact" active={router.pathname === '/venues'}>
-        Kontakt
+        {t('common:contact')}
       </NavLink>
     </nav>
   );

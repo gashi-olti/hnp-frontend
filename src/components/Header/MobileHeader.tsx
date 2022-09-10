@@ -118,7 +118,7 @@ export default function MobileHeader({ handleDrawerToggle, mobileOpen }: MobileH
                 direction="row"
                 justifyContent="space-between"
                 alignContent="center"
-                paddingY={2.5}
+                paddingY={2.7}
               >
                 <Box tw="mt-1">
                   <LanguageSelector />
