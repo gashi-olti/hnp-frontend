@@ -53,6 +53,12 @@ export default function LanguageSelector() {
               borderColor: 'white',
               borderWidth: '1px !important',
             },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
           },
           margin: 0,
         }}

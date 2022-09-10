@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, useTheme, useMediaQuery, IconButton } from '@mui/material';
 import Image from 'next/image';
 import PersonIcon from '@mui/icons-material/Person';
 import AddPersonIcon from '@mui/icons-material/PersonAddAlt1';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useTranslation } from 'react-i18next';
 
 import theme from '@/config/theme';
@@ -15,12 +16,21 @@ import LinkButton from '../LinkButton';
 import Navigation from './Navigation';
 import UserPopover from './UserPopover';
 import LanguageSelector from './LanguageSelector';
+import MobileHeader from './MobileHeader';
 
 export default function Header() {
   const { t } = useTranslation(['common']);
   const { isAuthenticated, isInitialising } = useAuth();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const muiTheme = useTheme();
+  const isMobile = useMediaQuery(muiTheme.breakpoints.down('sm'));
 
   const [mounted, setMounted] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   React.useEffect(() => {
     setMounted(true);
@@ -28,7 +38,7 @@ export default function Header() {
 
   return (
     <div tw="w-full bg-gradient-to-r from-sky to-cyan mb-4">
-      <Container style={{ paddingLeft: 0, paddingRight: 0 }} tw="py-2">
+      <Container tw="py-2">
         <Grid
           container
           item
@@ -36,10 +46,12 @@ export default function Header() {
           justifyContent="space-between"
           tw="flex flex-col items-stretch lg:(flex-row items-center)"
         >
-          <Grid container item xs={12} justifyContent="flex-end">
-            <LanguageSelector />
-          </Grid>
-          <div tw="flex flex-col sm:(flex-row items-center)">
+          {!isMobile && (
+            <Grid container item xs={12} justifyContent="flex-end">
+              <LanguageSelector />
+            </Grid>
+          )}
+          <div tw="flex flex-col sm:(flex-row items-center) flex-row justify-between items-center">
             <Grid item>
               <h1 tw="py-2 lg:py-4">
                 <CustomLink href="/">
@@ -47,8 +59,20 @@ export default function Header() {
                 </CustomLink>
               </h1>
             </Grid>
+            {isMobile && (
+              <Grid item>
+                <IconButton
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  sx={{ display: { sm: 'none' }, color: theme.palette.primary.contrastText }}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Grid>
+            )}
           </div>
-          {mounted && !isInitialising && (
+          {!isMobile && mounted && !isInitialising && (
             <div tw="flex flex-row justify-end items-center my-4 lg:(my-0)">
               {!isAuthenticated ? (
                 <>
@@ -85,6 +109,9 @@ export default function Header() {
                 </>
               )}
             </div>
+          )}
+          {isMobile && (
+            <MobileHeader handleDrawerToggle={handleDrawerToggle} mobileOpen={mobileOpen} />
           )}
         </Grid>
       </Container>
