@@ -9,7 +9,7 @@ import { CompanyProfile } from '@/interfaces/company.interface';
 import useFormErrors from '@/hooks/useFormErrors';
 import InputController from '@/components/Forms/InputController';
 import SelectController from '@/components/Forms/SelectController';
-import companySize, { CompanySizeInterface } from '@/config/companySize';
+import getCompanySize, { CompanySizeInterface } from '@/config/companySize';
 import LoadingButton from '@/components/LoadingButton';
 import useCompanyApi from '@/hooks/useCompanyApi';
 
@@ -131,7 +131,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
                 name="size"
               >
                 <MenuItem value="" tw="hidden"></MenuItem>
-                {companySize.map((size: CompanySizeInterface) => (
+                {getCompanySize(t).map((size: CompanySizeInterface) => (
                   <MenuItem key={size.key} value={size.value}>
                     {size.value}
                   </MenuItem>
