@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'next-i18next';
-import { Grid, MenuItem, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import dynamic from 'next/dynamic';
@@ -8,8 +8,6 @@ import dynamic from 'next/dynamic';
 import { CompanyProfile } from '@/interfaces/company.interface';
 import useFormErrors from '@/hooks/useFormErrors';
 import InputController from '@/components/Forms/InputController';
-import SelectController from '@/components/Forms/SelectController';
-import getCompanySize, { CompanySizeInterface } from '@/config/companySize';
 import LoadingButton from '@/components/LoadingButton';
 import useCompanyApi from '@/hooks/useCompanyApi';
 
@@ -18,6 +16,7 @@ import MediaSingle from '../MediaUpload/MediaSingle';
 import MediaMulti from '../MediaUpload/MediaMulti';
 import CustomTooltip from '../Common/CustomTooltip';
 import CustomContainer from '../Common/CustomContainer';
+import CompanySizeSelector from '../Forms/CompanySizeSelector';
 
 import { CompanyProfileForm, profileSchema } from './schema';
 
@@ -41,7 +40,7 @@ export default function ProfileForm({ company }: ProfileFormProps) {
       name: company?.name ?? '',
       number: company?.number ?? '',
       industry: company?.industry ?? '',
-      size: company?.size ?? '',
+      size: company?.size ?? null,
       founded: company?.founded ?? '',
       website: company?.website ?? '',
       description: company?.description ?? '',
@@ -124,19 +123,14 @@ export default function ProfileForm({ company }: ProfileFormProps) {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <SelectController
+              <CompanySizeSelector
+                defaultValue={defaultValues.size ?? null}
                 control={control}
                 errors={errors}
-                label={t('profile:company size')}
+                setValue={setValue}
                 name="size"
-              >
-                <MenuItem value="" tw="hidden"></MenuItem>
-                {getCompanySize(t).map((size: CompanySizeInterface) => (
-                  <MenuItem key={size.key} value={size.value}>
-                    {size.value}
-                  </MenuItem>
-                ))}
-              </SelectController>
+                label={t('profile:company size')}
+              />
             </Grid>
             <Grid item xs={12} sm={6}>
               <InputController
