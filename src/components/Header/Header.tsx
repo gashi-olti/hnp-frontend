@@ -44,14 +44,14 @@ export default function Header() {
           item
           alignItems="center"
           justifyContent="space-between"
-          tw="flex flex-col items-stretch lg:(flex-row items-center)"
+          tw="flex flex-row justify-between lg:(flex-row items-center)"
         >
           {!isMobile && (
             <Grid container item xs={12} justifyContent="flex-end">
               <LanguageSelector />
             </Grid>
           )}
-          <div tw="flex flex-col sm:(flex-row items-center) flex-row justify-between items-center">
+          <div tw="w-full flex flex-row justify-between items-center sm:(w-auto)">
             <Grid item>
               <h1 tw="py-2 lg:py-4">
                 <CustomLink href="/">
