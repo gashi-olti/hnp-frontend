@@ -11,12 +11,12 @@ import InputController from '@/components/Forms/InputController';
 import LoadingButton from '@/components/LoadingButton';
 import useCompanyApi from '@/hooks/useCompanyApi';
 
-import CountrySelector from '../Forms/CountrySelector';
-import MediaSingle from '../MediaUpload/MediaSingle';
-import MediaMulti from '../MediaUpload/MediaMulti';
-import CustomTooltip from '../Common/CustomTooltip';
-import CustomContainer from '../Common/CustomContainer';
-import CompanySizeSelector from '../Forms/CompanySizeSelector';
+import CountrySelector from '@/components/Forms/CountrySelector';
+import MediaSingle from '@/components/MediaUpload/MediaSingle';
+import MediaMulti from '@/components/MediaUpload/MediaMulti';
+import CustomTooltip from '@/components/Common/CustomTooltip';
+import CustomContainer from '@/components/Common/CustomContainer';
+import CompanySizeSelector from '@/components/Forms/CompanySizeSelector';
 
 import { CompanyProfileForm, profileSchema } from './schema';
 
