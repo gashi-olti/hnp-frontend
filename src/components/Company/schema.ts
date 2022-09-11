@@ -4,12 +4,13 @@ import * as yup from 'yup';
 import { MediaItemType } from '@/interfaces/media.interface';
 import { url } from '@/lib/transform';
 import mediaSchema from '@/interfaces/mediaSchema';
+import getCompanySize from '@/config/companySize';
 
 export type CompanyProfileForm = {
   name?: string;
   number?: string;
   industry?: string;
-  size?: string;
+  size?: number | null;
   founded?: string;
   website?: string;
   description?: string;
@@ -22,6 +23,14 @@ export type CompanyProfileForm = {
   cover?: MediaItemType | null;
   media?: MediaItemType[] | null;
 };
+
+export function looseZeroToNull(value: string | number, originalValue: string | number) {
+  if (originalValue === 0 || originalValue === '0') {
+    return null;
+  }
+
+  return value;
+}
 
 export const profileSchema = (t: TFunction) =>
   yup.object().shape({
@@ -37,7 +46,14 @@ export const profileSchema = (t: TFunction) =>
       .string()
       .max(255, t('validation:max length n', { n: 255 }))
       .nullable(),
-    size: yup.string().required(t('validation:required')),
+    size: yup
+      .number()
+      .transform(looseZeroToNull)
+      .nullable()
+      .oneOf(
+        getCompanySize(t).map((size) => size.key),
+        t('validation:required')
+      ),
     founded: yup
       .string()
       .max(255, t('validation:max length n', { n: 255 }))

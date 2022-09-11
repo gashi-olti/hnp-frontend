@@ -5,7 +5,7 @@ export interface CompanyProfile {
   name?: string;
   number?: string;
   industry?: string;
-  size?: string;
+  size?: number | null;
   founded?: string;
   website?: string;
   description?: string;
