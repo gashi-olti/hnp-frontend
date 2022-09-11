@@ -52,7 +52,12 @@ export default function LanguageSelector() {
             '& > fieldset': {
               borderColor: 'white',
               borderWidth: '1px !important',
-              borderRadius: 50,
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'white',
             },
           },
           margin: 0,

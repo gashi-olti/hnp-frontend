@@ -5,12 +5,33 @@
 
   "sign in": "Kyçu",
   "sign up": "Regjistrohu",
+  "logout": "Shkyqu",
 
-  "country": "Shteti",
   "city": "Qyteti",
+  "postal code": "Kodi Postar",
+  "country": "Shteti",
+  "phone number": "Numri i Telefonit",
 
   "new badge": "E Re",
+  "are you sure": "A je i sigurt?",
+  "ok": "Ok",
+  "cancel": "Anulo",
+  "my profile": "Profili im",
+  "my posts": "Postimet e mia",
 
   "something went wrong": "Diçka shkoi keq me kërkesën. Ju lutemi provoni përsëri.",
-  "not found": "Nuk u gjet"
+  "not found": "Nuk u gjet",
+  "seconds": "sekondash",
+
+  "drag and drop": "Drag & Drop",
+  "or click here": "ose përzgjedh këtu",
+
+  "cover tooltip": "Ju mund të ngarkoni vetëm foto katrore në formatet e mëposhtme: JPG, PNG, TIFF",
+  "company media items": "Ju mund të ngarkoni imazhe për kompaninë tuaj, p.sh. imazhet e zyrave. Nuk është e detyrueshme. \nFormatet e lejuara: JPG, PNG, TIFF.",
+
+  "home": "Ballina",
+  "create post": "Publiko konkurs",
+  "contact": "Na kontaktoni",
+  "employee": "Punëtor",
+  "employees": "Punëtorë"
 }

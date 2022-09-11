@@ -16,7 +16,7 @@ interface ProfileBasedGuardProps {
 const ProfileBasedGuard: FC<ProfileBasedGuardProps> = (props) => {
   const { profiles, redirectTo, children } = props;
 
-  const { userProfile, isInitialising, isAuthenticated } = useAuth();
+  const { userProfile, isInitialising, isAuthenticated, user } = useAuth();
   const router = useRouter();
 
   if (isInitialising) {
@@ -28,7 +28,14 @@ const ProfileBasedGuard: FC<ProfileBasedGuardProps> = (props) => {
   }
 
   if (userProfile && !profiles.includes(userProfile)) {
-    if (userProfile === ProfileTypes.Company) router.push(redirectTo ? redirectTo : '/company');
+    if (userProfile === ProfileTypes.Company) {
+      if (user && !user.isVerified)
+        router.push({
+          pathname: '/company/signupsuccess',
+        });
+
+      router.push(redirectTo ? redirectTo : '/company');
+    }
     if (userProfile === ProfileTypes.Admin) router.push(redirectTo ? redirectTo : '/backoffice');
     return null;
   }

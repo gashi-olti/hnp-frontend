@@ -4,12 +4,13 @@ import Layout from '@/components/Layout';
 import SignupComponent from '@/components/Signup';
 import GuestGuard from '@/components/Guards/GuestGuard';
 import pageMetaProps from '@/config/pages';
+import { ProfileTypes } from '@/interfaces/user.interface';
 
 export default function Signup() {
   return (
     <GuestGuard>
-      <Layout meta={pageMetaProps.signup} spacing={3} maxWidth="sm">
-        <SignupComponent />
+      <Layout meta={pageMetaProps.signup} my={8} maxWidth="sm">
+        <SignupComponent profileType={ProfileTypes.Company} />
       </Layout>
     </GuestGuard>
   );

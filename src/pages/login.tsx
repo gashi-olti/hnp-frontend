@@ -8,7 +8,7 @@ import pageMetaProps from '@/config/pages';
 export default function Login() {
   return (
     <GuestGuard>
-      <Layout meta={pageMetaProps.home} spacing={3} maxWidth="sm">
+      <Layout meta={pageMetaProps.home} my={8} maxWidth="sm">
         <LoginComponent />
       </Layout>
     </GuestGuard>

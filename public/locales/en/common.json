@@ -5,12 +5,33 @@
 
   "sign in": "Sign in",
   "sign up": "Sign up",
+  "logout": "Logout",
 
-  "country": "Country",
   "city": "City",
+  "postal code": "Postal Code",
+  "country": "Country",
+  "phone number": "Phone Number",
 
   "new badge": "New",
+  "are you sure": "Are you sure?",
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "my profile": "My profile",
+  "my posts": "My posts",
 
   "something went wrong": "Something went wrong with the request. Please try again.",
-  "not found": "Not Found"
+  "not found": "Not Found",
+  "seconds": "seconds",
+
+  "drag and drop": "Drag & Drop",
+  "or click here": "or select here",
+
+  "cover tooltip": "You can only upload square photos in the following formats: JPG, PNG, TIFF",
+  "company media items": "You can upload images about your company, e.g. offices images. It is not mandatory. \nAllowed formats: JPG, PNG, TIFF.",
+
+  "home": "Home",
+  "create post": "Create a post",
+  "contact": "Contact us",
+  "employee": "Employee",
+  "employees": "Employees"
 }

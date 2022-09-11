@@ -1,22 +1,67 @@
 import * as React from 'react';
-import { Box, Button, ListItemText, MenuItem, Popover, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import { TFunction, useTranslation } from 'next-i18next';
-import PersonIcon from '@mui/icons-material/Person';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import Filter3Icon from '@mui/icons-material/Filter3';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useAuth } from '@/providers/AuthProvider';
 import { ProfileTypes } from '@/interfaces/user.interface';
+import theme from '@/config/theme';
 
 import CustomLink from '../CustomLink';
 
 interface UserPopoverProps {}
 
+function stringToColor(string: string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+function stringAvatar(name: string) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: `${name.split(' ')[0][0]}`,
+  };
+}
+
 const getSections = (t: TFunction) => {
   const companySections = [
     {
+      icon: <ManageAccountsIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />,
       label: t('common:my profile'),
       href: '/company/profile',
     },
     {
+      icon: <Filter3Icon fontSize="small" sx={{ color: theme.palette.text.primary }} />,
       label: t('common:my posts'),
       href: '/company/posts',
     },
@@ -26,7 +71,7 @@ const getSections = (t: TFunction) => {
 };
 
 const UserPopover: React.FC<UserPopoverProps> = () => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['common', 'profile']);
   const { logout, userProfile } = useAuth();
 
   const anchorRef = React.useRef<HTMLButtonElement | null>(null);
@@ -40,28 +85,40 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
     setOpen(false);
   };
 
-  if (!userProfile) return null;
-
   return (
     <>
-      <Button onClick={handleOpen} ref={anchorRef} variant="buttonSuccess">
-        <PersonIcon />
-      </Button>
+      <Tooltip title={t('profile:account settings')} arrow>
+        <IconButton onClick={handleOpen} ref={anchorRef} size="small">
+          <Avatar {...stringAvatar('Hajdenpun')} tw="shadow-2xl" />
+        </IconButton>
+      </Tooltip>
 
-      <Popover
+      <Menu
         anchorEl={anchorRef.current}
         anchorOrigin={{
-          horizontal: 'center',
+          horizontal: 'right',
           vertical: 'bottom',
+        }}
+        transformOrigin={{
+          horizontal: 'right',
+          vertical: 'top',
         }}
         keepMounted
         onClose={handleClose}
         open={open}
+        PaperProps={{
+          elevation: 0,
+          sx: {
+            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+            minWidth: 200,
+          },
+        }}
       >
-        {![ProfileTypes.Admin].includes(userProfile) &&
+        {![ProfileTypes.Admin].includes(userProfile ?? 0) &&
           getSections(t).map((link) => (
             <CustomLink key={link.label} href={link.href}>
-              <MenuItem sx={{ ':hover': { backgroundColor: '#fddbba' } }}>
+              <MenuItem sx={{ ':hover': { backgroundColor: theme.palette.grey[200] } }}>
+                <ListItemIcon>{link.icon}</ListItemIcon>
                 <ListItemText
                   primary={
                     <Typography color="textPrimary" variant="subtitle2">
@@ -70,10 +127,14 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
                   }
                 />
               </MenuItem>
+              <Divider />
             </CustomLink>
           ))}
         <Box onClick={logout}>
-          <MenuItem sx={{ ':hover': { backgroundColor: '#fddbba' } }}>
+          <MenuItem sx={{ ':hover': { backgroundColor: theme.palette.grey[200] } }}>
+            <ListItemIcon>
+              <LogoutIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
+            </ListItemIcon>
             <ListItemText
               primary={
                 <Typography color="textPrimary" variant="subtitle2">
@@ -83,7 +144,7 @@ const UserPopover: React.FC<UserPopoverProps> = () => {
             />
           </MenuItem>
         </Box>
-      </Popover>
+      </Menu>
     </>
   );
 };

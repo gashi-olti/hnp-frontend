@@ -1,5 +1,25 @@
 {
   "signup title": "Regjistrohu tani",
   "signup button": "Regjistrohu",
-  "signup success": "Ju jeni regjistruar me sukses. Për të konfirmuar regjistrimin tuaj, ju lutemi kontrolloni emailin tuaj dhe klikoni link-un. Mund të duhen disa minuta që emaili i konfirmimit të dërgohet. Kontrolloni gjithashtu folderin SPAM për të parë nëse emaili ka përfunduar aty."
+  "signup success": "Ju jeni regjistruar me sukses. Për të konfirmuar regjistrimin tuaj, ju lutemi kontrolloni emailin tuaj dhe klikoni link-un. Mund të duhen disa minuta që emaili i konfirmimit të dërgohet. Kontrolloni gjithashtu folderin SPAM për të parë nëse emaili ka përfunduar aty.",
+  "login title": "Mirëse u ktheve! Kyqu tani",
+  "login button": "Kyqu tani",
+  "forgot password": "Keni harruar fjalëkalimin?",
+  "forgot password title": "Keni harruar fjalëkalimin?",
+  "forgot password description": "Ska problem! Shkruani emailin tuaj dhe ne do t'ju dërgojmë udhëzime se si të rivendosni fjalëkalimin tuaj.",
+  "forgot password button": "Rivendos fjalëkalimin",
+  "forgot password success": "Ne ju kemi dërguar një email për të rivendosur fjalëkalimin tuaj.",
+  "back to login": "Kthehu te kyqja",
+  "reset password title": "Rivendos fjalëkalimin",
+  "reset password button": "Rivendos fjalëkalimin",
+  "reset password success": "Fjalëkalimi juaj është përditësuar me sukses",
+  "verify email title": "Konfirmo e-mail adresën",
+  "account verification success": "Email-i juaj është verifikuar me sukses",
+
+  "no account signup": "Nuk ke llogari? Regjistrohu tani",
+
+  "verify email error title": "Llogaria juaj tashmë është aktivizuar",
+  "verify email error": "Ju e keni verifikuar tashmë llogarinë tuaj.",
+
+  "email resent successfully": "Email-i është ridërguar me sukses"
 }

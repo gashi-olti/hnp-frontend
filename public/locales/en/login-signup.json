@@ -1,5 +1,25 @@
 {
   "signup title": "Sign up now",
   "signup button": "Sign up",
-  "signup success": "You have registered successfully. To confirm your registration, please check your email and click the link. It may take a few minutes for the confirmation email to be delivered. Check your spam folder as well to see if the email ended up there."
+  "signup success": "You have registered successfully. To confirm your registration, please check your email and click the link. It may take a few minutes for the confirmation email to be delivered. Check your spam folder as well to see if the email ended up there.",
+  "verify email title": "Confirm email address",
+  "login title": "Welcome back! Login now",
+  "login button": "Login now",
+  "forgot password": "Forgot password?",
+  "forgot password title": "Did you forget your password?",
+  "forgot password description": "No worries! Type your email and we'll send you instructions on how to reset your password.",
+  "forgot password button": "Resset password",
+  "forgot password success": "We have sent you an email to reset your password.",
+  "back to login": "Back to login",
+  "reset password title": "Reset password",
+  "reset password button": "Reset password",
+  "reset password success": "Your password has been successfully updated",
+  "account verification success": "Your email has been successfully verified",
+
+  "no account signup": "No account? Signup now",
+
+  "verify email error title": "Your account has been activated",
+  "verify email error": "You have already verified your account.",
+
+  "email resent successfully": "Email has been resent successfully"
 }
