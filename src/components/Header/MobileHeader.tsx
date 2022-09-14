@@ -85,7 +85,7 @@ const getSections = (t: TFunction) => {
     {
       icon: <Filter3Icon sx={{ color: theme.palette.text.primary }} />,
       label: t('common:my posts'),
-      href: '/company/posts',
+      href: '/company',
     },
   ];
 
