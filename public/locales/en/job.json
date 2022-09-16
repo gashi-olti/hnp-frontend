@@ -5,5 +5,8 @@
 
   "search job post": "Search open positions",
   "job type": "Job Type",
-  "job category": "Job Category"
+  "job category": "Job Category",
+  "full time": "Full Time",
+  "part time": "Part Time",
+  "internship": "Internship"
 }
