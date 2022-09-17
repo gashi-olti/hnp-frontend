@@ -40,5 +40,7 @@
   "published": "Publikuar më",
   "deadline": "Përfundon",
   "location": "Lokacioni",
-  "action": "Operacione"
+  "action": "Operacione",
+  "edit": "Përditëso",
+  "delete": "Fshij"
 }

@@ -40,5 +40,7 @@
   "published": "Published",
   "deadline": "Ends",
   "location": "Location",
-  "action": "Action"
+  "action": "Action",
+  "edit": "Edit",
+  "delete": "Delete"
 }

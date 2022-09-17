@@ -12,5 +12,7 @@
   "positions": "Positions",
   "experience": "Experience required",
   "salary": "Salary",
-  "deadline": "Post deadline"
+  "deadline": "Post deadline",
+
+  "post will be deleted": "Post will be deleted"
 }
