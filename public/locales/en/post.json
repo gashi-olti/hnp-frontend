@@ -1,7 +1,8 @@
 {
   "my posts": "My posts",
   "create post title": "Publish new post",
-  "post create success": "Post has been created successfully",
+  "post create success": "Post has been published successfully",
+  "create new post": "Create new post",
   "create post": "Publish post",
   "post title": "Title",
   "description": "Job description & requirements",
