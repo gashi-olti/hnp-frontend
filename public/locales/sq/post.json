@@ -1,5 +1,15 @@
 {
   "my posts": "Postimet e mia",
-  "create post title": "Krijo postim të ri",
-  "post create success": "Postimi është krijuar me sukses"
+  "create post title": "Shpall konkurs pune",
+  "post create success": "Postimi është krijuar me sukses",
+  "create post": "Publiko konkursin",
+  "post title": "Titulli",
+  "description": "Përshkrimi & kërkesat e punës",
+  "job category": "Kategoria",
+  "job type": "Orari",
+  "job location": "Lokacioni",
+  "positions": "Pozitat e hapura",
+  "experience": "Eksperienca e kërkuar",
+  "salary": "Paga",
+  "deadline": "Kohëzgjatja e konkursit"
 }

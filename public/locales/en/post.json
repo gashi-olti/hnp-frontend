@@ -1,5 +1,15 @@
 {
   "my posts": "My posts",
-  "create post title": "Create new post",
-  "post create success": "Post has been created successfully"
+  "create post title": "Publish new post",
+  "post create success": "Post has been created successfully",
+  "create post": "Publish post",
+  "post title": "Title",
+  "description": "Job description & requirements",
+  "job category": "Category",
+  "job type": "Type",
+  "job location": "Location",
+  "positions": "Positions",
+  "experience": "Experience required",
+  "salary": "Salary",
+  "deadline": "Post deadline"
 }

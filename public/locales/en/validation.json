@@ -3,5 +3,8 @@
   "required": "Mandatory field - please enter the required data",
   "max length n": "Input must have a maximum of {{ n }} characters",
   "passwords must match": "Passwords must match",
-  "no valid url": "Please enter a valid URL"
+  "no valid url": "Please enter a valid URL",
+  "select job type": "Please select a valid job type",
+  "select job category": "Please select a valid job category",
+  "date max": "Post deadline cannot be longer than 1 month"
 }
