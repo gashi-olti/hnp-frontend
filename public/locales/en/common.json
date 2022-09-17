@@ -39,5 +39,6 @@
   "name": "Name",
   "published": "Published",
   "deadline": "Ends",
+  "location": "Location",
   "action": "Action"
 }
