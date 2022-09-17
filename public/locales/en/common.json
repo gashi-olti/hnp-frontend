@@ -34,5 +34,10 @@
   "create post": "Create a post",
   "contact": "Contact us",
   "employee": "Employee",
-  "employees": "Employees"
+  "employees": "Employees",
+
+  "name": "Name",
+  "published": "Published",
+  "deadline": "Ends",
+  "action": "Action"
 }

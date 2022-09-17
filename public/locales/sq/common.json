@@ -34,5 +34,10 @@
   "create post": "Publiko konkurs",
   "contact": "Na kontaktoni",
   "employee": "Punëtor",
-  "employees": "Punëtorë"
+  "employees": "Punëtorë",
+
+  "name": "Emri",
+  "published": "Publikuar më",
+  "deadline": "Përfundon",
+  "action": "Operacione"
 }
