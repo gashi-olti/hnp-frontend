@@ -100,6 +100,7 @@ export default function JobCategorySelector({
       ref={ref}
       id={`job-category-${name}`}
       options={getJobCategory(t)}
+      isOptionEqualToValue={(option, value) => option.value === value.value}
       getOptionLabel={(option: any) => t(option.value)}
       disableClearable
       onChange={(_event, newValue) => {

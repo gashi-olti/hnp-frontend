@@ -692,7 +692,7 @@ const rteRootStyle = {
   borderWidth: 1,
   borderColor: appTheme.palette.grey[300],
   borderRadius: twinTheme`borderRadius.md`,
-  '&.Mui-focused': {
+  '&.MuiFocused': {
     borderWidth: 2,
     borderColor: '#497fe8',
   },

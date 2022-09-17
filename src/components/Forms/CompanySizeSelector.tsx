@@ -98,6 +98,7 @@ export default function CompanySizeSelector({
       ref={ref}
       id={`company-size-${name}`}
       options={getCompanySize(t)}
+      isOptionEqualToValue={(option, value) => option.value === value.value}
       getOptionLabel={(option: any) => t(option.value)}
       disableClearable
       onChange={(_event, newValue) => {
