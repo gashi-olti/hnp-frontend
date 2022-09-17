@@ -96,6 +96,7 @@ export default function JobTypeSelector({
       ref={ref}
       id={`job-type-${name}`}
       options={getJobType(t)}
+      isOptionEqualToValue={(option, value) => option.value === value.value}
       getOptionLabel={(option: any) => t(option.value)}
       disableClearable
       onChange={(_event, newValue) => {
