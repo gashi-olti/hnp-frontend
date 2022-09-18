@@ -584,14 +584,14 @@ const overrides = (theme: Theme): Components => ({
     },
     styleOverrides: {
       root: {
-        marginBottom: theme.spacing(4),
+        // marginBottom: theme.spacing(2),
       },
       indicator: {
         display: 'flex',
         justifyContent: 'center',
         backgroundColor: 'transparent',
         '& > span': {
-          maxWidth: 30,
+          maxWidth: '100%',
           width: '100%',
           backgroundColor: twinTheme`colors.sky.DEFAULT`,
           backgroundSize: '100%',
@@ -604,7 +604,7 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         textTransform: 'uppercase',
-        fontSize: twinTheme`fontSize.2xl`,
+        fontSize: twinTheme`fontSize.lg`,
         lineHeight: twinTheme`lineHeight.8`,
         fontWeight: twinTheme`fontWeight.bold`,
         backgroundColor: twinTheme`colors.sky.DEFAULT`,
@@ -614,9 +614,9 @@ const overrides = (theme: Theme): Components => ({
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         minWidth: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
-        marginRight: theme.spacing(6),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
+        // marginRight: theme.spacing(6),
         '&:focus': {
           opacity: 1,
         },
