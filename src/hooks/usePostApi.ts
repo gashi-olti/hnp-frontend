@@ -34,8 +34,40 @@ export default function usePostApi() {
     }
   };
 
+  const updatePost = async (uuid: string, body: PostModel) => {
+    setIsLoading(true);
+    try {
+      const data: PostModel = await Api.put(`posts/${uuid}`, { ...transformDates(body) });
+
+      openSnackbar(t('post:post update success'));
+      setIsLoading(false);
+
+      return data;
+    } catch (err) {
+      setIsLoading(false);
+      throw err;
+    }
+  };
+
+  const deletePost = async (uuid: string) => {
+    setIsLoading(true);
+    try {
+      const result = await Api.delete(`posts/${uuid}`);
+
+      openSnackbar(t('post:post delete success'));
+      setIsLoading(false);
+
+      return result;
+    } catch (err) {
+      setIsLoading(false);
+      throw err;
+    }
+  };
+
   return {
     createPost,
+    updatePost,
+    deletePost,
     isLoading,
   };
 }
