@@ -82,7 +82,7 @@ export default function Posts() {
 
       <Grid container marginTop={6}>
         <Grid item xs={12}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider', mt: '-2px', mb: 2 }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider', mt: '-3px', mb: 2 }}>
             <Tabs value={value} onChange={handleChange}>
               <Tab label={t('common:active posts')} value="activePosts"></Tab>
               <Tab label={t('common:Expired posts')} value="expiredPosts"></Tab>
