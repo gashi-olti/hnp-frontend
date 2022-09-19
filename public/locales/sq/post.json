@@ -17,5 +17,7 @@
   "deadline": "Kohëzgjatja e konkursit",
 
   "post will be deleted": "Postimi do të fshihet. Nëse fshihet, nuk do të mund ta rikuperoni më. Vazhdo?",
-  "post delete success": "Konkursi është fshirë me sukses"
+  "post delete success": "Konkursi është fshirë me sukses",
+
+  "search posts": "Kërko postimet..."
 }
