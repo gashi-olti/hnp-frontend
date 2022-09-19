@@ -3,24 +3,29 @@ import { Card, InputAdornment, InputBase } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { theme as twinTheme } from 'twin.macro';
 
-export default function SearchBar() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface SearchbarProps {
+  placeholder?: string;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function SearchBar({ placeholder = 'Search...', value, setValue }: SearchbarProps) {
   const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    // setValue(event.target.value);
+    setValue(event.target.value);
   };
 
   return (
     <Card
-      elevation={4}
+      elevation={3}
       style={{
         borderRadius: twinTheme`borderRadius.full`,
       }}
     >
       <InputBase
-        value={null}
+        value={value}
         fullWidth
         onChange={handleQueryChange}
-        placeholder="Search..."
+        placeholder={placeholder}
         startAdornment={
           <InputAdornment position="start" tw="-ml-2 mr-2">
             <SearchIcon color="disabled" />
