@@ -583,23 +583,16 @@ const overrides = (theme: Theme): Components => ({
       },
     },
     styleOverrides: {
-      root: {
-        // marginBottom: theme.spacing(2),
-      },
       indicator: {
         display: 'flex',
         justifyContent: 'center',
+        height: '3px',
         '& > span': {
           maxWidth: '100%',
           width: '100%',
           backgroundColor: twinTheme`colors.sky.DEFAULT`,
           backgroundSize: '100%',
           backgroundImage: defaultGradient(),
-        },
-        '& > div': {
-          '&:hover': {
-            backgroundColor: twinTheme`colors.sky.[100]`,
-          },
         },
       },
     },
