@@ -19,7 +19,7 @@ import { DateTime } from 'luxon';
 
 import { Scrollbar } from '@/components/Common/Scrollbar';
 import useSort from '@/hooks/useSort';
-import useFilter from '@/hooks/useFilter';
+import { FilterApi } from '@/hooks/useFilter';
 import usePagination from '@/hooks/usePagination';
 import { PostModel } from '@/interfaces/post.interface';
 import { PaginatedResult } from '@/interfaces/paginatedResponse.interface';
@@ -48,6 +48,10 @@ const tableHeadStructure = (t: TFunction) => {
 
   return structure;
 };
+
+interface ActivePostsProps {
+  filterApi: FilterApi;
+}
 
 type RowProps = {
   row: any;
@@ -139,11 +143,10 @@ const PostsRow = ({ row, mutatePosts, t }: RowProps) => {
   );
 };
 
-export default function ActivePosts() {
+export default function ActivePosts({ filterApi }: ActivePostsProps) {
   const { t } = useTranslation(['post', 'common', 'company']);
 
   const sortApi = useSort({ initialSort: { field: 'title', dir: 'asc' } });
-  const filterApi = useFilter();
   const paginationApi = usePagination();
 
   const { page, pageLimit, handleChangePage } = paginationApi;

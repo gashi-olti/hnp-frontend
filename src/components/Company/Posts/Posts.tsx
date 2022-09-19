@@ -17,6 +17,7 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 
 import SearchBar from '@/components/Common/SearchBar';
 import TabPanel from '@/components/Common/TabPanel';
+import useFilter from '@/hooks/useFilter';
 
 import ActivePosts from './ActivePosts';
 
@@ -27,6 +28,8 @@ export default function Posts() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [value, setValue] = React.useState<string>('activePosts');
+
+  const filterApi = useFilter();
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: string) => {
     setValue(newValue);
@@ -53,7 +56,11 @@ export default function Posts() {
             </div>
 
             <Box sx={{ minWidth: 150, width: 300 }} ml={4}>
-              <SearchBar />
+              <SearchBar
+                placeholder={t('post:search posts')}
+                value={filterApi.searchTerm}
+                setValue={filterApi.setSearchTerm}
+              />
             </Box>
           </Stack>
 
@@ -84,7 +91,7 @@ export default function Posts() {
         </Grid>
 
         <TabPanel value={value} tab="activePosts">
-          <ActivePosts />
+          <ActivePosts filterApi={filterApi} />
         </TabPanel>
 
         <TabPanel value={value} tab="expiredPosts">
