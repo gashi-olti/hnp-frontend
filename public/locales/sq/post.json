@@ -19,5 +19,7 @@
   "post will be deleted": "Postimi do të fshihet. Nëse fshihet, nuk do të mund ta rikuperoni më. Vazhdo?",
   "post delete success": "Konkursi është fshirë me sukses",
 
-  "search posts": "Kërko postimet..."
+  "search posts": "Kërko postimet...",
+  "active posts": "Postet aktive",
+  "expired posts": "Postet jo-aktive"
 }

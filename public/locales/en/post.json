@@ -19,5 +19,7 @@
   "post will be deleted": "Post will be deleted. If deleted you wont be able to recover it anymore. Continue?",
   "post delete success": "Post has been deleted successfully",
 
-  "search posts": "Search posts..."
+  "search posts": "Search posts...",
+  "active posts": "Active posts",
+  "expired posts": "Expired posts"
 }
