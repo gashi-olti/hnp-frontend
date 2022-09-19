@@ -26,7 +26,7 @@ export const postSchema = (t: TFunction) =>
       .string()
       .test('plaintextMax', t('validation:max length n', { n: 1600 }), function (value): boolean {
         if (value) {
-          if (value.replace(/<[^>]*>?/gm, '').length > 1600) {
+          if (value.replace(/<[^>]*>?/gm, '').length > 4000) {
             return false;
           }
         }
