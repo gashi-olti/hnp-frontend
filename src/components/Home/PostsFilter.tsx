@@ -37,7 +37,7 @@ const getCitiesList = (data: Location[] | undefined) => {
 
 interface HomeFilterProps extends GridProps {}
 
-export default function JobsFilter({ ...props }: HomeFilterProps) {
+export default function PostsFilter({ ...props }: HomeFilterProps) {
   const { t } = useTranslation(['common']);
   const [countries, setCountries] = React.useState<Location[] | undefined>([]);
   const theme = useTheme();
