@@ -74,7 +74,7 @@ export default function JobTypeFilterSelector({
         '& .MuiOutlinedInput-root': {
           '& > fieldset': {
             borderWidth: '1px !important',
-            borderRadius: 50,
+            // borderRadius: 50,
           },
         },
       }}

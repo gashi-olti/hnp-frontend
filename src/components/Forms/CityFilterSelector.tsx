@@ -95,7 +95,7 @@ export default function CityFilterSelector({
         '& .MuiOutlinedInput-root': {
           '& > fieldset': {
             borderWidth: '1px !important',
-            borderRadius: 50,
+            // borderRadius: 50,
           },
         },
       }}
