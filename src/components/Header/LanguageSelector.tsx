@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Box, Button, ClickAwayListener, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import CheckIcon from '@mui/icons-material/Check';
 import { useRouter } from 'next/router';
 import { styled } from 'twin.macro';
 
@@ -15,9 +14,12 @@ const SelectedButton = styled(Button)(() => ({
   paddingInline: 4,
   borderRadius: 3,
   minWidth: 50,
-  backgroundColor: theme.palette.primary.contrastText,
-  color: theme.palette.grey[800],
+  color: theme.palette.primary.contrastText,
+  borderColor: theme.palette.primary.contrastText,
   transition: 'all ease-in 100ms',
+  '&:hover': {
+    borderColor: theme.palette.primary.contrastText,
+  },
 }));
 
 export default function LanguageSelector() {
@@ -34,10 +36,8 @@ export default function LanguageSelector() {
       <Box
         sx={{
           position: 'relative',
-          bgcolor: theme.palette.grey[200],
           width: 'auto',
           height: 'auto',
-          borderRadius: 0.1,
         }}
       >
         <SelectedButton
@@ -45,11 +45,13 @@ export default function LanguageSelector() {
             setOpen(!open);
           }}
           disableRipple
-          variant="text"
+          variant="outlined"
           size="small"
           endIcon={!open ? <ExpandMoreIcon /> : <ExpandLessIcon />}
         >
-          <Typography variant="subtitle2">{language}</Typography>
+          <Typography variant="body1" sx={{ color: theme.palette.primary.contrastText }}>
+            {language}
+          </Typography>
         </SelectedButton>
 
         {open ? (
@@ -60,7 +62,7 @@ export default function LanguageSelector() {
               bgcolor: theme.palette.primary.contrastText,
               mt: 0.5,
               borderRadius: 0.1,
-              border: `1px solid ${theme.palette.grey[400]}`,
+              boxShadow: 8,
             }}
           >
             {languages.map((lang) => (
@@ -71,8 +73,10 @@ export default function LanguageSelector() {
                   setLanguage(lang);
                   router.push(router.asPath, router.asPath, { locale: lang });
                 }}
-                sx={{ display: 'flex', justifyContent: 'space-between' }}
-                endIcon={lang === language ? <CheckIcon /> : null}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
                 variant="text"
               >
                 <Typography variant="subtitle2">{lang}</Typography>
