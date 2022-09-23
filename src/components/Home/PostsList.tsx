@@ -2,7 +2,7 @@ import { Box, Grid, Pagination } from '@mui/material';
 import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import List from '@/components/Jobs';
+import List from '@/components/Posts';
 import { JobModel } from '@/interfaces/job.interface';
 
 import JobsFilter from './JobsFilter';
@@ -36,7 +36,7 @@ interface FieldValues {
   country: string;
 }
 
-export default function JobsList() {
+export default function PostsList() {
   const router = useRouter();
 
   const { ...methods } = useForm<FieldValues>({

@@ -13,11 +13,11 @@ import { Images } from '@/components/Icons/Images';
 import CustomLink from '../CustomLink';
 import NewBadge from '../Common/NewBadge';
 
-interface JobsListProps {
+interface PostsListProps {
   data: JobModel;
 }
 
-export default function List({ data }: JobsListProps) {
+export default function List({ data }: PostsListProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/naming-convention
   const { title, description, new_post } = data;
 

@@ -1,14 +1,14 @@
 import { Container } from '@mui/material';
 
 import HomeBanner from './HomeBanner';
-import JobsList from './JobsList';
+import PostsList from './PostsList';
 
 export default function Home() {
   return (
     <>
       <Container>
         <HomeBanner />
-        <JobsList />
+        <PostsList />
       </Container>
     </>
   );
