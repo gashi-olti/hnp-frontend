@@ -21,7 +21,7 @@ export default function ErrorComponent({
   return (
     <div tw="container flex-col items-center justify-center py-56" className={className}>
       <div>
-        <div tw="pl-4 border-l-2 border-red-600 flex flex-col">
+        <div tw="pl-4 border-l-4 border-red-600 flex flex-col">
           <Typography variant="h2">{title}</Typography>
           {message && <Typography>{message}</Typography>}
         </div>
