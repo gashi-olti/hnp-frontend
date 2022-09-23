@@ -83,7 +83,7 @@ export default function Posts() {
       <Grid container marginTop={6}>
         <Grid item xs={12}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider', mt: '-3px', mb: 2 }}>
-            <Tabs value={value} onChange={handleChange}>
+            <Tabs value={value} onChange={handleChange} variant="scrollable">
               <Tab label={t('post:active posts')} value="activePosts"></Tab>
               <Tab label={t('post:expired posts')} value="expiredPosts"></Tab>
             </Tabs>
