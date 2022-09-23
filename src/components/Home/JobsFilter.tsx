@@ -1,105 +1,54 @@
 import * as React from 'react';
-import { Checkbox, Grid, GridProps, InputAdornment, ListItemText, MenuItem } from '@mui/material';
+import {
+  Grid,
+  GridProps,
+  InputAdornment,
+  Tooltip,
+  useTheme,
+  useMediaQuery,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+} from '@mui/material';
+import FilterListIcon from '@mui/icons-material/FilterList';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
 import useSWR from 'swr';
 import SearchIcon from '@mui/icons-material/Search';
-import { ChangeEvent } from 'react';
 
-import { JobPositionInterface, JobPositionType, JobType } from '@/interfaces/job.interface';
-import { City, Location } from '@/interfaces/city.interface';
+import { Location } from '@/interfaces/city.interface';
+import getJobCategory from '@/config/jobCategory';
+import getJobType from '@/config/jobType';
 
 import InputController from '../Forms/InputController';
-import SelectController from '../Forms/SelectController';
+import CountryFilterSelector from '../Forms/CountryFilterSelector';
+import JobCategoryFilterSelector from '../Forms/JobCategoryFilterSelector';
+import JobTypeFilterSelector from '../Forms/JobTypeFilterSelector';
+import CityFilterSelector from '../Forms/CityFilterSelector';
 
-const ITEM_HEIGHT = 68;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      borderRadius: 20,
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-    },
-  },
-};
+const getCitiesList = (data: Location[] | undefined) => {
+  let citites: any[] = [];
 
-const getItemList = (data: JobPositionType[], jobCategoryChecked: string[]) => {
-  return data.map((category: JobPositionType) => {
-    const jobPositionItem = category.job_position.map((jobPosition: JobPositionInterface) => (
-      <MenuItem key={jobPosition.name} value={jobPosition.name}>
-        <Checkbox tw="pl-12" checked={jobCategoryChecked.indexOf(jobPosition.name) > -1} />
-        <ListItemText primary={jobPosition.name} />
-      </MenuItem>
-    ));
+  data?.filter((country: Location) => country.cities.map((city) => citites.push(city)));
 
-    return [
-      <MenuItem key={category.category} value={category.category}>
-        <Checkbox checked={jobCategoryChecked.indexOf(category.category) > -1} />
-        <ListItemText primary={category.category} />
-      </MenuItem>,
-      jobPositionItem,
-    ];
-  });
-};
-
-const getCityList = (data: Location[], countryChecked: string[], cityChecked: string[]) => {
-  return data
-    .filter((country: Location) => countryChecked.includes(country.country_code))
-    .map((location) =>
-      location.cities.map((city: City) => (
-        <MenuItem key={city.name} value={city.name}>
-          <Checkbox checked={cityChecked.indexOf(city.name) > -1} />
-          <ListItemText primary={city.name} />
-        </MenuItem>
-      ))
-    );
+  return citites;
 };
 
 interface HomeFilterProps extends GridProps {}
 
 export default function JobsFilter({ ...props }: HomeFilterProps) {
   const { t } = useTranslation(['common']);
-  const [jobTypeChecked, setJobTypeChecked] = React.useState<string[]>([]);
-  const [jobCategoryChecked, setJobCategoryChecked] = React.useState<string[]>([]);
-  const [countryChecked, setCountryChecked] = React.useState<string[]>([]);
-  const [cityChecked, setCityChecked] = React.useState<string[]>([]);
+  const [countries, setCountries] = React.useState<Location[] | undefined>([]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { data: jobType } = useSWR<JobType[]>('job/types');
-  const { data: positionType } = useSWR<JobPositionType[]>('job/positiontypes');
   const { data: locations } = useSWR<Location[]>('job/locations');
 
   const {
     control,
     formState: { errors },
   } = useFormContext();
-
-  const handleJobTypeChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
-    setJobTypeChecked(typeof value === 'string' ? value.split(' | ') : value);
-  };
-
-  const handleJobCategoryChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
-    setJobCategoryChecked(typeof value === 'string' ? value.split(' | ') : value);
-  };
-
-  const handleCountryChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
-    setCountryChecked(typeof value === 'string' ? value.split(' | ') : value);
-  };
-
-  const handleCityChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
-    const {
-      target: { value },
-    } = event;
-    setCityChecked(typeof value === 'string' ? value.split(' | ') : value);
-  };
 
   return (
     <Grid container {...props} wrap="wrap" columnSpacing={2}>
@@ -112,135 +61,134 @@ export default function JobsFilter({ ...props }: HomeFilterProps) {
           label={t('job:search job post')}
           InputProps={{
             endAdornment: (
-              <InputAdornment position="start" tw="mr-2">
+              <InputAdornment position="end">
                 <SearchIcon color="disabled" />
               </InputAdornment>
             ),
           }}
           sx={{
             '& .MuiOutlinedInput-root': {
-              borderRadius: 50,
-              padding: '0 10px',
               '& > fieldset': {
                 borderWidth: '1px !important',
-                borderRadius: 50,
+                // borderRadius: isMobile ? 0.3 : 50,
               },
             },
           }}
         />
       </Grid>
-      <Grid item xs={12} md={6}>
-        <SelectController
-          control={control}
-          errors={errors}
-          name="jobcategory"
-          multiple={true}
-          label={t('job:job category')}
-          value={jobCategoryChecked}
-          onChange={handleJobCategoryChange}
-          menuProps={MenuProps}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: 50,
-              padding: '0 10px',
-              '& > fieldset': {
-                borderWidth: '1px !important',
-                borderRadius: 50,
-              },
-            },
-          }}
-        >
-          <MenuItem value="" disabled sx={{ display: 'none' }} />
-          {positionType && getItemList(positionType, jobCategoryChecked)}
-        </SelectController>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <SelectController
-          control={control}
-          errors={errors}
-          name="jobtype"
-          multiple={true}
-          label={t('job:job type')}
-          value={jobTypeChecked}
-          onChange={handleJobTypeChange}
-          menuProps={MenuProps}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: 50,
-              padding: '0 10px',
-              '& > fieldset': {
-                borderWidth: '1px !important',
-                borderRadius: 50,
-              },
-            },
-          }}
-        >
-          <MenuItem value="" disabled sx={{ display: 'none' }} />
-          {jobType &&
-            jobType?.map((job: JobType) => (
-              <MenuItem key={job.category} value={job.category}>
-                <Checkbox checked={jobTypeChecked.indexOf(job.category) > -1} />
-                <ListItemText primary={job.category} />
-              </MenuItem>
-            ))}
-        </SelectController>
-      </Grid>
-      <Grid item xs={6} md={4}>
-        <SelectController
-          control={control}
-          errors={errors}
-          name="country"
-          multiple={true}
-          label={t('common:country')}
-          value={countryChecked}
-          onChange={handleCountryChange}
-          menuProps={MenuProps}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: 50,
-              padding: '0 10px',
-              '& > fieldset': {
-                borderWidth: '1px !important',
-                borderRadius: 50,
-              },
-            },
-          }}
-        >
-          <MenuItem value="" disabled sx={{ display: 'none' }} />
-          {locations &&
-            locations?.map((country: Location) => (
-              <MenuItem key={country.country_name} value={country.country_code}>
-                <Checkbox checked={countryChecked.indexOf(country.country_code) > -1} />
-                <ListItemText primary={country.country_name} />
-              </MenuItem>
-            ))}
-        </SelectController>
-      </Grid>
-      <Grid item xs={6} md={4}>
-        <SelectController
-          control={control}
-          errors={errors}
-          name="city"
-          multiple={true}
-          label={t('common:city')}
-          value={cityChecked}
-          onChange={handleCityChange}
-          menuProps={MenuProps}
-          sx={{
-            '& .MuiOutlinedInput-root': {
-              borderRadius: 50,
-              padding: '0 10px',
-              '& > fieldset': {
-                borderWidth: '1px !important',
-                borderRadius: 50,
-              },
-            },
-          }}
-        >
-          <MenuItem value="" disabled sx={{ display: 'none' }} />
-          {locations && getCityList(locations, countryChecked, cityChecked)}
-        </SelectController>
-      </Grid>
+
+      {isMobile ? (
+        <Grid container item xs={12} mt={1} justifyContent="center" alignContent="center">
+          <Accordion
+            disableGutters
+            square
+            elevation={0}
+            sx={{ borderWidth: `1px !important`, borderColor: `${theme.palette.grey[300]}` }}
+            tw="w-full"
+          >
+            <AccordionSummary
+              expandIcon={
+                <Tooltip title="Filters" arrow>
+                  <FilterListIcon fontSize="medium" />
+                </Tooltip>
+              }
+            >
+              <Typography variant="body1">Filters</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Grid item xs={12}>
+                <JobCategoryFilterSelector
+                  control={control}
+                  errors={errors}
+                  name="jobcategory"
+                  label={t('job:job category')}
+                  options={getJobCategory(t)}
+                  setValue={() => {}}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <JobTypeFilterSelector
+                  control={control}
+                  errors={errors}
+                  name="jobtype"
+                  label={t('job:job type')}
+                  options={getJobType(t)}
+                  setValue={() => {}}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                {locations && (
+                  <CountryFilterSelector
+                    control={control}
+                    errors={errors}
+                    name="country"
+                    label={t('common:country')}
+                    options={locations}
+                    setValue={() => {}}
+                    setCountries={setCountries}
+                  />
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <CityFilterSelector
+                  control={control}
+                  errors={errors}
+                  name="city"
+                  label={t('common:city')}
+                  options={getCitiesList(countries)}
+                  setValue={() => {}}
+                />
+              </Grid>
+            </AccordionDetails>
+          </Accordion>
+        </Grid>
+      ) : (
+        <>
+          <Grid item xs={12} md={6}>
+            <JobCategoryFilterSelector
+              control={control}
+              errors={errors}
+              name="jobcategory"
+              label={t('job:job category')}
+              options={getJobCategory(t)}
+              setValue={() => {}}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <JobTypeFilterSelector
+              control={control}
+              errors={errors}
+              name="jobtype"
+              label={t('job:job type')}
+              options={getJobType(t)}
+              setValue={() => {}}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            {locations && (
+              <CountryFilterSelector
+                control={control}
+                errors={errors}
+                name="country"
+                label={t('common:country')}
+                options={locations}
+                setValue={() => {}}
+                setCountries={setCountries}
+              />
+            )}
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <CityFilterSelector
+              control={control}
+              errors={errors}
+              name="city"
+              label={t('common:city')}
+              options={getCitiesList(countries)}
+              setValue={() => {}}
+            />
+          </Grid>
+        </>
+      )}
     </Grid>
   );
 }
