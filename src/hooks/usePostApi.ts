@@ -13,7 +13,7 @@ export default function usePostApi() {
 
   const transformDates = (body: PostModel) => {
     if (body.ends) {
-      body.ends = DateTime.fromObject(body.ends as unknown as DateTime).toFormat('dd-MM-yyyy');
+      body.ends = DateTime.fromJSDate(body.ends as Date).toFormat('dd-MM-yyyy');
     }
 
     return body;
@@ -37,6 +37,7 @@ export default function usePostApi() {
   const updatePost = async (uuid: string, body: PostModel) => {
     setIsLoading(true);
     try {
+      console.log('body ', body);
       const data: PostModel = await Api.put(`posts/${uuid}`, { ...transformDates(body) });
 
       openSnackbar(t('post:post update success'));
