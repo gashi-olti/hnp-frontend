@@ -12,6 +12,7 @@ export interface DatePickerControllerProps {
   inputFormat?: string;
   mask?: string;
   required?: boolean;
+  disabled?: boolean;
 }
 
 type DatePickerProps = {
@@ -36,6 +37,7 @@ export default function DatePickerController({
   disableHighlightToday,
   openTo,
   views,
+  disabled = false,
 }: DatePickerControllerProps & DatePickerProps) {
   return (
     <Controller
@@ -48,6 +50,7 @@ export default function DatePickerController({
             allowSameDateSelection={true}
             label={label}
             value={field.value}
+            disabled={disabled}
             onChange={(date: Date | null) => field.onChange(date)}
             {...(maxDate && { maxDate })}
             {...(minDate && { minDate })}
@@ -58,7 +61,6 @@ export default function DatePickerController({
             mask={mask}
             OpenPickerButtonProps={{
               size: 'small',
-              
             }}
             renderInput={(params: TextFieldProps) => (
               <TextField

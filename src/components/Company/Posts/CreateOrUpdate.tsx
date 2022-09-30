@@ -183,6 +183,7 @@ export default function CreateOrUpdate({ uuid }: Props) {
                 maxDate={new Date(DateTime.local().plus({ month: 1 }).toString())}
                 minDate={new Date()}
                 required
+                disabled={uuid ? true : false}
               />
             </Grid>
             <Grid item xs={12}>
@@ -223,7 +224,7 @@ export default function CreateOrUpdate({ uuid }: Props) {
                   color="primary"
                   isLoading={isLoading}
                 >
-                  {t('post:create post')}
+                  {uuid ? t('post:update post') : t('post:create post')}
                 </LoadingButton>
               </Grid>
             </Grid>
