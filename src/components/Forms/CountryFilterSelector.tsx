@@ -68,7 +68,11 @@ export default function CountryFilterSelector({
       getOptionLabel={(option: any) => t(option.country_name)}
       disableClearable
       onChange={(_event, newValue: any) => {
-        setValue(name, newValue?.key, { shouldValidate: true, shouldDirty: true });
+        setValue(
+          name,
+          newValue?.map((value: any) => value.country_code),
+          { shouldValidate: true, shouldDirty: true }
+        );
         setSelectedCountries(newValue);
       }}
       ChipProps={{

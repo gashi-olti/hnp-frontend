@@ -64,7 +64,11 @@ export default function CityFilterSelector({
       getOptionLabel={(option: any) => t(option.name)}
       disableClearable
       onChange={(_event, newValue: any) => {
-        setValue(name, newValue?.key, { shouldValidate: true, shouldDirty: true });
+        setValue(
+          name,
+          newValue?.map((value: any) => value.name),
+          { shouldValidate: true, shouldDirty: true }
+        );
         setSelectedCities(newValue);
       }}
       ChipProps={{

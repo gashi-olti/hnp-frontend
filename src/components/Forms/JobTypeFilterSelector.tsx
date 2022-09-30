@@ -64,7 +64,11 @@ export default function JobTypeFilterSelector({
       getOptionLabel={(option: any) => t(option.value)}
       disableClearable
       onChange={(_event, newValue: any) => {
-        setValue(name, newValue?.key, { shouldValidate: true, shouldDirty: true });
+        setValue(
+          name,
+          newValue?.map((value: any) => value.key),
+          { shouldValidate: true, shouldDirty: true }
+        );
         setSelectedTypes(newValue);
       }}
       ChipProps={{

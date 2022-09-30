@@ -25,17 +25,12 @@ type JobCategoryFilterSelectorProps = {
 
 export default function JobCategoryFilterSelector({
   control,
-  errors,
   name,
   label,
   options,
   setValue,
-  emptySelection,
   defaultValue = null,
   disabled,
-  className,
-  required,
-  ...props
 }: JobCategoryFilterSelectorProps) {
   const { t } = useTranslation('job');
 
@@ -53,7 +48,6 @@ export default function JobCategoryFilterSelector({
 
   return (
     <Autocomplete
-      {...props}
       {...inputProps}
       ref={ref}
       multiple
@@ -74,7 +68,11 @@ export default function JobCategoryFilterSelector({
         },
       }}
       onChange={(_event, newValue: any) => {
-        setValue(name, newValue?.key, { shouldValidate: true, shouldDirty: true });
+        setValue(
+          name,
+          newValue?.map((value: any) => value.key),
+          { shouldValidate: true, shouldDirty: true }
+        );
         setSelectedCategories(newValue);
       }}
       ChipProps={{
