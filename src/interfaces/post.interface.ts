@@ -1,3 +1,5 @@
+import { Company } from './company.interface';
+
 export interface PostModel {
   uuid: string;
   title: string;
@@ -10,4 +12,6 @@ export interface PostModel {
   salary?: string;
   ends: string | Date;
   created_at?: string | Date;
+
+  company?: Company;
 }
