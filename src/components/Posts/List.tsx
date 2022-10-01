@@ -21,7 +21,7 @@ const PostImageStyle = styled('img')(() => ({
 }));
 
 const ChipStyled = styled(Chip)(() => ({
-  minWidth: 60,
+  minWidth: 65,
   maxWidth: 140,
   marginLeft: 2,
   marginRight: 2,
