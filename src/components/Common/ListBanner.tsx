@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { ReactNode } from 'react';
 
 interface ListBannerProps {
@@ -10,9 +10,12 @@ interface ListBannerProps {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function ListBanner({ header, subHeader, content, children }: ListBannerProps) {
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <Box
-      my={2}
+      my={isDesktop ? 2 : 0}
       tw="bg-gradient-to-r from-sky to-cyan"
       sx={{ position: 'relative', overflow: 'hidden' }}
     >
