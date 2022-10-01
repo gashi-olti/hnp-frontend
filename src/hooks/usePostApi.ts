@@ -37,13 +37,10 @@ export default function usePostApi() {
   const updatePost = async (uuid: string, body: PostModel) => {
     setIsLoading(true);
     try {
-      console.log('body ', body);
-      const data: PostModel = await Api.put(`posts/${uuid}`, { ...transformDates(body) });
+      await Api.put(`posts/${uuid}`, { ...transformDates(body) });
 
       openSnackbar(t('post:post update success'));
       setIsLoading(false);
-
-      return data;
     } catch (err) {
       setIsLoading(false);
       throw err;
