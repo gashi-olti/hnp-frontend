@@ -14,45 +14,42 @@ import {
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
-import useSWR from 'swr';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { Location } from '@/interfaces/city.interface';
 import getJobCategory from '@/config/jobCategory';
 import getJobType from '@/config/jobType';
 
 import InputController from '../Forms/InputController';
-import CountryFilterSelector from '../Forms/CountryFilterSelector';
 import JobCategoryFilterSelector from '../Forms/JobCategoryFilterSelector';
 import JobTypeFilterSelector from '../Forms/JobTypeFilterSelector';
-import CityFilterSelector from '../Forms/CityFilterSelector';
 
-const getCitiesList = (data: Location[] | undefined) => {
-  let citites: any[] = [];
+// const getCitiesList = (data: Location[] | undefined) => {
+//   let citites: any[] = [];
 
-  data?.filter((country: Location) => country.cities.map((city) => citites.push(city)));
+//   data?.filter((country: Location) => country.cities.map((city) => citites.push(city)));
 
-  return citites;
-};
+//   return citites;
+// };
 
 interface HomeFilterProps extends GridProps {}
 
 export default function PostsFilter({ ...props }: HomeFilterProps) {
   const { t } = useTranslation(['common']);
-  const [countries, setCountries] = React.useState<Location[] | undefined>([]);
+  // const [countries, setCountries] = React.useState<Location[] | undefined>([]);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { data: locations } = useSWR<Location[]>('job/locations');
+  // const { data: locations } = useSWR<Location[]>('job/locations');
 
   const {
     control,
     formState: { errors },
+    setValue,
   } = useFormContext();
 
   return (
     <Grid container {...props} wrap="wrap" columnSpacing={2}>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
         <InputController
           control={control}
           errors={errors}
@@ -100,23 +97,32 @@ export default function PostsFilter({ ...props }: HomeFilterProps) {
                 <JobCategoryFilterSelector
                   control={control}
                   errors={errors}
-                  name="jobcategory"
+                  name="category"
                   label={t('job:job category')}
                   options={getJobCategory(t)}
-                  setValue={() => {}}
+                  setValue={setValue}
                 />
               </Grid>
               <Grid item xs={12}>
                 <JobTypeFilterSelector
                   control={control}
                   errors={errors}
-                  name="jobtype"
+                  name="type"
                   label={t('job:job type')}
                   options={getJobType(t)}
-                  setValue={() => {}}
+                  setValue={setValue}
                 />
               </Grid>
-              <Grid item xs={12}>
+
+              {/**
+               *
+               * Haven't found a solution about countries and
+               * cities filtering yet, so commenting this piece
+               * of code  for now.
+               *
+               */}
+
+              {/* <Grid item xs={12}>
                 {locations && (
                   <CountryFilterSelector
                     control={control}
@@ -124,7 +130,7 @@ export default function PostsFilter({ ...props }: HomeFilterProps) {
                     name="country"
                     label={t('common:country')}
                     options={locations}
-                    setValue={() => {}}
+                    setValue={setValue}
                     setCountries={setCountries}
                   />
                 )}
@@ -136,55 +142,32 @@ export default function PostsFilter({ ...props }: HomeFilterProps) {
                   name="city"
                   label={t('common:city')}
                   options={getCitiesList(countries)}
-                  setValue={() => {}}
+                  setValue={setValue}
                 />
-              </Grid>
+              </Grid> */}
             </AccordionDetails>
           </Accordion>
         </Grid>
       ) : (
         <>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <JobCategoryFilterSelector
               control={control}
               errors={errors}
               name="jobcategory"
               label={t('job:job category')}
               options={getJobCategory(t)}
-              setValue={() => {}}
+              setValue={setValue}
             />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6}>
             <JobTypeFilterSelector
               control={control}
               errors={errors}
               name="jobtype"
               label={t('job:job type')}
               options={getJobType(t)}
-              setValue={() => {}}
-            />
-          </Grid>
-          <Grid item xs={12} md={4}>
-            {locations && (
-              <CountryFilterSelector
-                control={control}
-                errors={errors}
-                name="country"
-                label={t('common:country')}
-                options={locations}
-                setValue={() => {}}
-                setCountries={setCountries}
-              />
-            )}
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <CityFilterSelector
-              control={control}
-              errors={errors}
-              name="city"
-              label={t('common:city')}
-              options={getCitiesList(countries)}
-              setValue={() => {}}
+              setValue={setValue}
             />
           </Grid>
         </>
