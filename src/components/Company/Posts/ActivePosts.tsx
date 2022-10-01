@@ -91,7 +91,9 @@ const PostsRow = ({ row, mutatePosts, t }: RowProps) => {
         }
       >
         <TableCell key="title" sx={{ maxWidth: 200 }}>
-          <Typography variant="subtitle2">{row.title}</Typography>
+          <Typography variant="subtitle2" tw="line-clamp-2">
+            {row.title}
+          </Typography>
         </TableCell>
         <TableCell key="created_at" sx={{ maxWidth: 150 }}>
           <Typography variant="subtitle2">
@@ -104,7 +106,9 @@ const PostsRow = ({ row, mutatePosts, t }: RowProps) => {
           </Typography>
         </TableCell>
         <TableCell key="location" sx={{ maxWidth: 200 }}>
-          <Typography variant="subtitle2">{row.location}</Typography>
+          <Typography variant="subtitle2" tw="line-clamp-2">
+            {row.location}
+          </Typography>
         </TableCell>
         <TableCell align="right" sx={{ maxWidth: 150 }}>
           <Grid container columnGap={1} tw="flex justify-end">
