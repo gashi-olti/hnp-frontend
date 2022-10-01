@@ -71,8 +71,16 @@ export default function CreateOrUpdate({ uuid }: Props) {
     try {
       if (post?.uuid) {
         await updatePost(post.uuid, data);
+        // const result = await updatePost(post.uuid, data);
+        // if (result) {
+        //   router.push('/company', '/company', { locale: router.locale });
+        // }
       } else {
         await createPost(data);
+        // const result = await createPost(data);
+        // if (result) {
+        //   router.push('/company', '/company', { locale: router.locale });
+        // }
       }
 
       router.push('/company', '/company', { locale: router.locale });
