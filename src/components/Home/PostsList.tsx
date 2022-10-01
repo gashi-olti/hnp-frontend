@@ -58,7 +58,7 @@ export default function PostsList() {
       </Box>
 
       {empty && (
-        <Grid container>
+        <Grid container my={4}>
           {query && searchTermDebounce ? (
             <Typography tw="text-lg font-bold">{t('common:no results for', { query })}</Typography>
           ) : (
@@ -68,7 +68,7 @@ export default function PostsList() {
       )}
 
       {searchTermDebounce && !empty && query && (
-        <Grid container>
+        <Grid container mt={4}>
           <Grid item>
             <Typography tw="text-lg font-bold mb-4">
               {t('common:returned results for', { query })}
