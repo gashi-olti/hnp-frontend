@@ -42,5 +42,10 @@
   "location": "Location",
   "action": "Action",
   "edit": "Edit",
-  "delete": "Delete"
+  "delete": "Delete",
+  "days": "days",
+
+  "no results": "No results is found for your search.",
+  "no results for": "No results is found for \"{{ query }}\".",
+  "returned results for": "Returned results for your search \"{{ query }}\"."
 }
