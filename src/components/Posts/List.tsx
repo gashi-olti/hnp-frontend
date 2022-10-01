@@ -5,6 +5,7 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useTranslation } from 'next-i18next';
+import { DateTime } from 'luxon';
 
 import { Images } from '@/components/Icons/Images';
 import { PostModel } from '@/interfaces/post.interface';
@@ -35,7 +36,21 @@ interface PostsListProps {
 }
 
 export default function List({ data }: PostsListProps) {
-  const { t } = useTranslation([]);
+  const { t } = useTranslation(['common']);
+
+const getDaysLeft = (date?: string | Date) => {
+    let jsDateToLuxonDate, differenceInDays;
+
+    if (date) {
+      jsDateToLuxonDate = DateTime.fromISO(
+        DateTime.fromJSDate(new Date(date)).toFormat('yyyy-MM-dd')
+      );
+      const currentDate = DateTime.fromISO(DateTime.local().toFormat('yyyy-MM-dd'));
+      differenceInDays = jsDateToLuxonDate.diff(currentDate, 'days');
+    }
+
+    return `${differenceInDays?.toObject().days} ${t('days')}`;
+  };
 
   return (
     <CustomLink href={'#'}>
@@ -106,7 +121,7 @@ export default function List({ data }: PostsListProps) {
 
                 <ChipStyled
                   icon={<AccessTimeIcon tw="text-lg" />}
-                  label="12 dite"
+                  label={getDaysLeft(data?.ends) ?? ''}
                   tw="text-white line-clamp-1 flex flex-row justify-center"
                 />
               </Stack>
