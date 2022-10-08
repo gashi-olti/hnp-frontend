@@ -5,5 +5,31 @@
 
   "search job post": "Search open positions",
   "job type": "Job Type",
-  "job category": "Job Category"
+  "job category": "Job Category",
+  "full time": "Full Time",
+  "part time": "Part Time",
+  "internship": "Internship",
+
+  "administration": "Administration",
+  "education": "Education",
+  "agronomy": "Agronomy",
+  "architecture and design": "Architecture & Design",
+  "bank and finance": "Bank & Finances",
+  "call center": "Call Center",
+  "hotel and turism": "Hotel & Turism",
+  "engineering": "Engineering",
+  "automotive industry": "Automotive Industry",
+  "juridical": "Juridical",
+  "logistics": "Logistics",
+  "accountability": "Accountability",
+  "construction": "Construction",
+  "media": "Media",
+  "marketing and advertising": "Marketing & Advertising",
+  "production": "Production",
+  "it": "Information Technology",
+  "telecommunication": "Telecommunication",
+  "sport": "Sport",
+  "health services": "Health Services",
+  "sales": "Sales",
+  "others": "Others"
 }

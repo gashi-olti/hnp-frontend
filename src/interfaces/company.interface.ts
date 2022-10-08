@@ -1,6 +1,6 @@
 import { MediaItemType } from './media.interface';
 
-export interface CompanyProfile {
+export interface Company {
   uuid?: string;
   name?: string;
   number?: string;

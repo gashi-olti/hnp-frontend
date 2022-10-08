@@ -19,6 +19,7 @@
   "my profile": "My profile",
   "my posts": "My posts",
 
+  "error": "Error",
   "something went wrong": "Something went wrong with the request. Please try again.",
   "not found": "Not Found",
   "seconds": "seconds",
@@ -33,5 +34,18 @@
   "create post": "Create a post",
   "contact": "Contact us",
   "employee": "Employee",
-  "employees": "Employees"
+  "employees": "Employees",
+
+  "name": "Name",
+  "published": "Published",
+  "deadline": "Ends",
+  "location": "Location",
+  "action": "Action",
+  "edit": "Edit",
+  "delete": "Delete",
+  "days": "days",
+
+  "no results": "No results is found for your search.",
+  "no results for": "No results is found for \"{{ query }}\".",
+  "returned results for": "Returned results for your search \"{{ query }}\"."
 }

@@ -5,5 +5,31 @@
 
   "search job post": "Kërkoni konkurse",
   "job type": "Orari",
-  "job category": "Kategoria"
+  "job category": "Kategoria",
+  "full time": "Orar të plotë",
+  "part time": "Orar të pjesshëm",
+  "internship": "Praktikë",
+
+  "administration": "Administratë",
+  "education": "Arsim & Edukim",
+  "agronomy": "Agronomi",
+  "architecture and design": "Arkitekturë & Dizajn",
+  "bank and finance": "Bank & Financa",
+  "call center": "Call Center",
+  "hotel and turism": "Hoteleri & Turizëm",
+  "engineering": "Inxhinieri",
+  "automotive industry": "Industri Automobilistike",
+  "juridical": "Juridike",
+  "logistics": "Logjistikë",
+  "accountability": "Kontabilitet",
+  "construction": "Ndërtimtari",
+  "media": "Media",
+  "marketing and advertising": "Marketing & Reklamim",
+  "production": "Prodhimtari",
+  "it": "Teknologji Informative - IT",
+  "telecommunication": "Telekomunikacion",
+  "sport": "Sport",
+  "health services": "Shërbime Shëndetsore",
+  "sales": "Shitje",
+  "others": "Të tjera"
 }

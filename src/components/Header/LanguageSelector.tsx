@@ -1,111 +1,90 @@
 import * as React from 'react';
-import { Box, MenuItem, TextField } from '@mui/material';
+import { Box, Button, ClickAwayListener, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { useRouter } from 'next/router';
+import { styled } from 'twin.macro';
 
 import theme from '@/config/theme';
 
-const MenuProps = {
-  MenuProps: {
-    anchorOrigin: {
-      vertical: 20,
-      horizontal: 'left',
-    },
+const languages = ['sq', 'en'];
+
+const SelectedButton = styled(Button)(() => ({
+  padding: 0,
+  paddingInline: 4,
+  borderRadius: 3,
+  minWidth: 50,
+  color: theme.palette.primary.contrastText,
+  borderColor: theme.palette.primary.contrastText,
+  transition: 'all ease-in 100ms',
+  '&:hover': {
+    borderColor: theme.palette.primary.contrastText,
   },
-  PaperProps: {
-    style: {
-      borderRadius: 5,
-    },
-  },
-};
+}));
 
 export default function LanguageSelector() {
   const router = useRouter();
   const [language, setLanguage] = React.useState<string>(router.locale ?? 'sq');
+  const [open, setOpen] = React.useState(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLanguage(event.target.value);
+  const handleClickAway = () => {
+    setOpen(false);
   };
 
   return (
-    <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': { width: 62 },
-        marginTop: 0,
-        marginLeft: 1,
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField
-        select
-        value={language}
-        onChange={handleChange}
-        size="small"
+    <ClickAwayListener onClickAway={handleClickAway}>
+      <Box
         sx={{
-          svg: { right: 0, color: theme.palette.primary.contrastText },
-          '& .MuiSelect-select': {
-            paddingX: 1.5,
-          },
-          '& .MuiInputBase-root': {
-            borderRadius: 50,
-            '& > fieldset': {
-              borderColor: 'white',
-              borderWidth: '1px !important',
-            },
-            '&:hover .MuiOutlinedInput-notchedOutline': {
-              borderColor: 'white',
-            },
-            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: 'white',
-            },
-          },
-          margin: 0,
-        }}
-        InputProps={{
-          style: {
-            color: theme.palette.primary.contrastText,
-            height: 32,
-          },
-        }}
-        SelectProps={{
-          MenuProps: MenuProps,
+          position: 'relative',
+          width: 'auto',
+          height: 'auto',
         }}
       >
-        <MenuItem
-          key={1}
-          value="sq"
+        <SelectedButton
           onClick={() => {
-            router.push(router.asPath, router.asPath, { locale: 'sq' });
+            setOpen(!open);
           }}
-          sx={{
-            '&.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root': {
-              fontSize: theme.typography.body2,
-              paddingY: 0.5,
-            },
-          }}
+          disableRipple
+          variant="outlined"
+          size="small"
+          endIcon={!open ? <ExpandMoreIcon /> : <ExpandLessIcon />}
         >
-          SQ
-        </MenuItem>
-        <MenuItem
-          key={2}
-          value="en"
-          onClick={() => {
-            router.push(router.asPath, router.asPath, { locale: 'en' });
-          }}
-          sx={{
-            '&.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root': {
-              fontSize: theme.typography.body2,
-              paddingY: 0.5,
-            },
-            '&.MuiMenuItem-root MuiMenuItem-gutters Mui-selected MuiButtonBase-root': {
-              paddingY: 0.5,
-            },
-          }}
-        >
-          EN
-        </MenuItem>
-      </TextField>
-    </Box>
+          <Typography variant="body1" sx={{ color: theme.palette.primary.contrastText }}>
+            {language}
+          </Typography>
+        </SelectedButton>
+
+        {open ? (
+          <Box
+            sx={{
+              position: 'absolute',
+              zIndex: 999,
+              bgcolor: theme.palette.primary.contrastText,
+              mt: 0.5,
+              borderRadius: 0.1,
+              boxShadow: 8,
+            }}
+          >
+            {languages.map((lang) => (
+              <SelectedButton
+                key={lang}
+                size="small"
+                onClick={() => {
+                  setLanguage(lang);
+                  router.push(router.asPath, router.asPath, { locale: lang });
+                }}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+                variant="text"
+              >
+                <Typography variant="subtitle2">{lang}</Typography>
+              </SelectedButton>
+            ))}
+          </Box>
+        ) : null}
+      </Box>
+    </ClickAwayListener>
   );
 }

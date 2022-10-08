@@ -46,7 +46,7 @@ const getPages = (t: TFunction) => {
     {
       icon: <AddCircleOutlineOutlinedIcon sx={{ color: theme.palette.text.primary }} />,
       label: t('common:create post'),
-      href: '/company/post/create',
+      href: '/company',
     },
     {
       icon: <NotesIcon sx={{ color: theme.palette.text.primary }} />,
@@ -85,7 +85,7 @@ const getSections = (t: TFunction) => {
     {
       icon: <Filter3Icon sx={{ color: theme.palette.text.primary }} />,
       label: t('common:my posts'),
-      href: '/company/posts',
+      href: '/company',
     },
   ];
 

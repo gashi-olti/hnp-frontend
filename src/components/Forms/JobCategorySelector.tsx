@@ -12,9 +12,9 @@ import {
   FormHelperText,
 } from '@mui/material';
 
-import getCompanySize, { CompanySizeInterface } from '@/config/companySize';
+import getJobCategory, { JobCategoryInterface } from '@/config/jobCategory';
 
-type CompanySizeProps = {
+type JobCategoryProps = {
   control: any;
   errors: FieldErrors;
   name: string;
@@ -27,7 +27,7 @@ type CompanySizeProps = {
   required?: boolean;
 };
 
-export default function CompanySizeSelector({
+export default function JobCategorySelector({
   control,
   errors,
   name,
@@ -39,14 +39,14 @@ export default function CompanySizeSelector({
   className,
   required,
   ...props
-}: CompanySizeProps) {
-  const { t } = useTranslation('common');
+}: JobCategoryProps) {
+  const { t } = useTranslation('job');
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [selectedSize, setSelectedSize] = React.useState<CompanySizeInterface | null>(
-    getCompanySize(t)[0]
+  const [selectedCategory, setSelectedCategory] = React.useState<JobCategoryInterface | null>(
+    getJobCategory(t)[0]
   );
 
   const {
@@ -59,14 +59,16 @@ export default function CompanySizeSelector({
 
   React.useEffect(() => {
     if (defaultValue) {
-      setSelectedSize(getCompanySize(t).find((size) => size.key === defaultValue) || null);
+      setSelectedCategory(
+        getJobCategory(t).find((category) => category.key === defaultValue) || null
+      );
     }
   }, [defaultValue, t]);
 
   if (isMobile) {
     return (
       <FormControl className={className} fullWidth disabled={disabled}>
-        <InputLabel required={required} htmlFor={`company-size-${name}`}>
+        <InputLabel required={required} htmlFor={`job-category-${name}`}>
           {label}
         </InputLabel>
         <Select
@@ -74,16 +76,16 @@ export default function CompanySizeSelector({
           {...props}
           inputProps={{
             ...inputProps,
-            id: `company-size-selector-${name}`,
+            id: `job-category-selector-${name}`,
           }}
           inputRef={ref}
           error={!!errors[name]}
           fullWidth
         >
           {emptySelection && <option aria-label="emptySelection" value="" />}
-          {getCompanySize(t).map((size) => (
-            <option key={size.key} value={size.key || 0}>
-              {t(size.value)}
+          {getJobCategory(t).map((category) => (
+            <option key={category.key} value={category.key || 0}>
+              {t(category.value)}
             </option>
           ))}
         </Select>
@@ -96,16 +98,16 @@ export default function CompanySizeSelector({
     <Autocomplete
       {...inputProps}
       ref={ref}
-      id={`company-size-${name}`}
-      options={getCompanySize(t)}
+      id={`job-category-${name}`}
+      options={getJobCategory(t)}
       isOptionEqualToValue={(option, value) => option.value === value.value}
       getOptionLabel={(option: any) => t(option.value)}
       disableClearable
       onChange={(_event, newValue) => {
         setValue(name, newValue?.key, { shouldValidate: true, shouldDirty: true });
-        setSelectedSize(newValue);
+        setSelectedCategory(newValue);
       }}
-      value={selectedSize as any}
+      value={selectedCategory as any}
       renderInput={(params) => (
         <TextField
           {...params}

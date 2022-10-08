@@ -25,7 +25,7 @@ export default function Navigation() {
       <NavLink href="/" active={router.pathname === '/'}>
         {t('common:home')}
       </NavLink>
-      <NavLink href="/company/post/create" active={router.pathname === '/artists'}>
+      <NavLink href="/company" active={router.pathname === '/artists'}>
         {t('common:create post')}
       </NavLink>
       <NavLink href="/contact" active={router.pathname === '/venues'}>
