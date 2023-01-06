@@ -25,7 +25,7 @@ export default function Post() {
   if (!post) return <ErrorComponent title={t('common:not found')} message={t('post not found')} />;
 
   return (
-    <Layout meta={{ title: post.title, description: post.description_plain }} maxWidth="xl">
+    <Layout meta={{ title: post.title, description: post.description_plain }} maxWidth="lg">
       <SinglePostComponent post={post} />
     </Layout>
   );
@@ -33,6 +33,6 @@ export default function Post() {
 
 export const getServerSideProps = async ({ locale }: { locale: any }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common', 'post'])),
+    ...(await serverSideTranslations(locale, ['common', 'post', 'job'])),
   },
 });
