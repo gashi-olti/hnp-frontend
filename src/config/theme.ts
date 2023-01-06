@@ -543,7 +543,7 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         minWidth: 35,
-        paddingRight: theme.spacing(1),
+        paddingRight: theme.spacing(2),
         marginTop: theme.spacing(0.5),
         alignSelf: 'flex-start',
         justifyContent: 'flex-end',
@@ -698,7 +698,7 @@ const rteRootStyle = {
   },
 };
 const rteEditorStyle = {
-  height: '250px',
+  height: '300px',
   overflowY: 'hidden',
   marginBottom: '10px',
   marginTop: '1px',

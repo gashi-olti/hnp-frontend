@@ -154,7 +154,7 @@ export default function PostsFilter({ ...props }: HomeFilterProps) {
             <JobCategoryFilterSelector
               control={control}
               errors={errors}
-              name="jobcategory"
+              name="category"
               label={t('job:job category')}
               options={getJobCategory(t)}
               setValue={setValue}
@@ -164,7 +164,7 @@ export default function PostsFilter({ ...props }: HomeFilterProps) {
             <JobTypeFilterSelector
               control={control}
               errors={errors}
-              name="jobtype"
+              name="type"
               label={t('job:job type')}
               options={getJobType(t)}
               setValue={setValue}

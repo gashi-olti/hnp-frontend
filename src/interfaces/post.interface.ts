@@ -4,6 +4,7 @@ export interface PostModel {
   uuid: string;
   title: string;
   description: string;
+  description_plain: string;
   type: number | null;
   category: number | null;
   location: string;

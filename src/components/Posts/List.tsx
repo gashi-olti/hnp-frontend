@@ -38,7 +38,7 @@ interface PostsListProps {
 export default function List({ data }: PostsListProps) {
   const { t } = useTranslation(['common']);
 
-const getDaysLeft = (date?: string | Date) => {
+  const getDaysLeft = (date?: string | Date) => {
     let jsDateToLuxonDate, differenceInDays;
 
     if (date) {
@@ -53,7 +53,7 @@ const getDaysLeft = (date?: string | Date) => {
   };
 
   return (
-    <CustomLink href={'#'}>
+    <CustomLink href={`/posts/${data?.uuid}`}>
       <Card elevation={8} sx={{ borderRadius: 0.5 }}>
         <Box
           // tw="bg-gradient-to-r from-sky to-cyan"
