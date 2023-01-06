@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
@@ -12,6 +12,7 @@ import InputController from '@/components/Forms/InputController';
 import PasswordInput from '@/components/Forms/PasswordInput';
 
 import LoadingButton from '../LoadingButton';
+import CustomContainer from '../Common/CustomContainer';
 
 import { loginSchema, LoginFields } from './schema';
 
@@ -46,18 +47,16 @@ export default function LoginForm({ onClick }: LoginProps) {
   };
 
   return (
-    <Container tw="justify-center my-16">
+    <CustomContainer title={t('login-signup:login title')} tw="justify-center">
       <form onSubmit={handleSubmit(submitForm)}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography variant="h2">{t('login-signup:login title')}</Typography>
-          </Grid>
           <Grid item xs={12}>
             <InputController
               control={control}
               errors={errors}
               label={t('common:email')}
               name="email"
+              type="email"
               autoFocus
               disabled={isInitialising}
             />
@@ -68,6 +67,7 @@ export default function LoginForm({ onClick }: LoginProps) {
               errors={errors}
               label={t('common:password')}
               name="password"
+              type="password"
               disabled={isInitialising}
             />
           </Grid>
@@ -80,7 +80,7 @@ export default function LoginForm({ onClick }: LoginProps) {
               onClick={onClick}
               disabled={isInitialising}
             >
-              {t('forgot password title')}
+              {t('forgot password')}
             </Button>
           </Grid>
           <Grid item xs={12}>
@@ -102,6 +102,6 @@ export default function LoginForm({ onClick }: LoginProps) {
           </Grid>
         </Grid>
       </form>
-    </Container>
+    </CustomContainer>
   );
 }

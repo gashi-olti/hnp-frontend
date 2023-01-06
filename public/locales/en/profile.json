@@ -1,0 +1,28 @@
+{
+  "company profile create success": "Your profile has been successfully created",
+  "company profile create success notice": "Thank you for your registration.",
+  "company profile create verify email notice": "You received an email from us. Please verify your registration.",
+  "send verification link": "Didn't receive the verification email?",
+  "resend verification email": "Resend email",
+  "resend again in": "Resend again in",
+  "profile title": "Profile",
+
+  "company information": "Information about the company",
+  "company information description": "Please insert some information about your company. The given information will be shown to users.",
+
+  "company name": "Company Name",
+  "company number": "Company Number",
+  "company industry": "Industry",
+  "company size": "Company Size",
+  "company founded": "Founded",
+  "company website": "Website",
+  "company description": "Description",
+  "company specialties": "Specialties",
+  "company logo": "Company Logo",
+  "company media": "Images about the company. Add {{ count }} more media",
+
+  "save profile": "Save profile",
+  "company profile update success": "Profile updated successfully",
+
+  "account settings": "Account Settings"
+}

@@ -1,0 +1,26 @@
+{
+  "my posts": "My posts",
+  "create post title": "Publish new post",
+  "update post title": "Update post",
+  "post create success": "Post has been published successfully",
+  "post update success": "Post has been updated successfully",
+  "create new post": "Create new post",
+  "create post": "Publish post",
+  "update post": "Update post",
+  "post title": "Title",
+  "description": "Job description & requirements",
+  "job category": "Category",
+  "job type": "Type",
+  "job location": "Location",
+  "positions": "Positions",
+  "experience": "Experience required",
+  "salary": "Salary",
+  "deadline": "Post deadline",
+
+  "post will be deleted": "Post will be deleted. If deleted you wont be able to recover it anymore. Continue?",
+  "post delete success": "Post has been deleted successfully",
+
+  "search posts": "Search posts...",
+  "active posts": "Active posts",
+  "expired posts": "Expired posts"
+}

@@ -3,9 +3,10 @@ import { appWithTranslation } from 'next-i18next';
 import { SWRConfig } from 'swr';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider } from '@mui/material';
-// import { LocalizationProvider } from '@mui/lab';
-// import DateAdapter from '@mui/lab/AdapterDateFns';
-// import { sq } from 'date-fns/locale';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// import deLocale from 'date-fns/locale/de';
+import enUS from 'date-fns/locale/en-US';
 
 import createEmotionCache from '@/utils/createEmotionCache';
 import StylesGlobal from '@/components/GlobalStyles';
@@ -29,14 +30,14 @@ function MyApp(props: HnpAppProps) {
           {/**
            * NO SUPPORT FOR ALBANIAN LANGUAGE YET
            */}
-          {/* <LocalizationProvider dateAdapter={DateAdapter} locale={sq}> */}
-          <StylesGlobal />
-          <NotificationProvider>
-            <AuthProvider>
-              <Component {...pageProps} />
-            </AuthProvider>
-          </NotificationProvider>
-          {/* </LocalizationProvider> */}
+          <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={enUS}>
+            <StylesGlobal />
+            <NotificationProvider>
+              <AuthProvider>
+                <Component {...pageProps} />
+              </AuthProvider>
+            </NotificationProvider>
+          </LocalizationProvider>
         </MuiThemeProvider>
       </CacheProvider>
     </SWRConfig>

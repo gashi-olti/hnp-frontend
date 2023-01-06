@@ -345,11 +345,6 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
-  MuiButtonBase: {
-    defaultProps: {
-      disableRipple: true,
-    },
-  },
   MuiInputBase: {
     styleOverrides: {
       root: {
@@ -379,18 +374,19 @@ const overrides = (theme: Theme): Components => ({
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
+        borderRadius: twinTheme`borderRadius.md`,
         '& .MuiOutlinedInput-notchedOutline': {
-          borderColor: theme.palette.grey[500],
-          borderWidth: 2,
+          borderColor: theme.palette.grey[300],
+          borderWidth: 1,
           borderRadius: twinTheme`borderRadius.md`,
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
-          borderWidth: 2,
+          borderWidth: 1,
           borderColor: theme.palette.grey[500],
         },
         '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
           borderWidth: 2,
-          borderColor: theme.palette.grey[500],
+          borderColor: '#497fe8',
         },
       },
       notchedOutline: {
@@ -408,27 +404,27 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         color: theme.palette.text.secondary,
-        '&.Mui-focused': {
-          color: theme.palette.common.black,
+        '&.MuiInputLabel-root.Mui-focused': {
+          color: '#497fe8',
         },
       },
       outlined: {
-        transform: `translate(25px, 16px) scale(1);`,
+        transform: `translate(18px, 16px) scale(1);`,
         '&.MuiInputLabel-shrink': {
           color: theme.palette.text.secondary,
           backgroundColor: theme.palette.primary.contrastText,
-          paddingLeft: '4px',
-          paddingRight: '4px',
-          transform: `translate(25px, -10px) scale(0.8);`,
+          paddingLeft: '5px',
+          paddingRight: '5px',
+          transform: `translate(15px, -10px) scale(0.8);`,
         },
         '&.MuiInputLabel-sizeSmall': {
           transform: `translate(25px,8px) scale(1)`,
           '&.MuiInputLabel-shrink': {
             color: theme.palette.text.secondary,
-            backgroundColor: theme.palette.primary.contrastText,
+            backgroundColor: theme.palette.grey[100],
             paddingLeft: '4px',
             paddingRight: '4px',
-            transform: `translate(25px, -20px) scale(0.8);`,
+            transform: `translate(12px, -10px) scale(0.8);`,
           },
         },
       },
@@ -488,7 +484,6 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         borderRadius: theme.shape.borderRadius,
-        boxShadow: theme.shadows[4],
       },
     },
   },
@@ -499,13 +494,15 @@ const overrides = (theme: Theme): Components => ({
         style: {
           color: theme.palette.primary.contrastText,
           backgroundColor: theme.palette.primary.main,
+          boxShadow: theme.shadows[6],
         },
       },
       {
         props: { variant: 'secondary' },
         style: {
-          color: '#3C3C3C',
-          backgroundColor: '#f5b5d2',
+          color: theme.palette.primary.contrastText,
+          backgroundColor: theme.palette.secondary.main,
+          boxShadow: theme.shadows[6],
         },
       },
     ],
@@ -530,16 +527,6 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
-  MuiFormLabel: {
-    defaultProps: {
-      focused: false,
-    },
-    styleOverrides: {
-      root: {
-        color: 'currentColor',
-      },
-    },
-  },
   MuiButtonGroup: {
     styleOverrides: {
       contained: {
@@ -556,7 +543,7 @@ const overrides = (theme: Theme): Components => ({
     styleOverrides: {
       root: {
         minWidth: 35,
-        paddingRight: theme.spacing(1),
+        paddingRight: theme.spacing(2),
         marginTop: theme.spacing(0.5),
         alignSelf: 'flex-start',
         justifyContent: 'flex-end',
@@ -581,13 +568,11 @@ const overrides = (theme: Theme): Components => ({
   },
   MuiCheckbox: {
     defaultProps: {
-      disableRipple: true,
       color: 'secondary',
     },
   },
   MuiRadio: {
     defaultProps: {
-      disableRipple: true,
       color: 'secondary',
     },
   },
@@ -598,15 +583,12 @@ const overrides = (theme: Theme): Components => ({
       },
     },
     styleOverrides: {
-      root: {
-        marginBottom: theme.spacing(4),
-      },
       indicator: {
         display: 'flex',
         justifyContent: 'center',
-        backgroundColor: 'transparent',
+        height: '3px',
         '& > span': {
-          maxWidth: 30,
+          maxWidth: '100%',
           width: '100%',
           backgroundColor: twinTheme`colors.sky.DEFAULT`,
           backgroundSize: '100%',
@@ -616,13 +598,10 @@ const overrides = (theme: Theme): Components => ({
     },
   },
   MuiTab: {
-    defaultProps: {
-      disableRipple: true,
-    },
     styleOverrides: {
       root: {
         textTransform: 'uppercase',
-        fontSize: twinTheme`fontSize.2xl`,
+        fontSize: twinTheme`fontSize.lg`,
         lineHeight: twinTheme`lineHeight.8`,
         fontWeight: twinTheme`fontWeight.bold`,
         backgroundColor: twinTheme`colors.sky.DEFAULT`,
@@ -632,9 +611,8 @@ const overrides = (theme: Theme): Components => ({
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         minWidth: 0,
-        paddingLeft: 0,
-        paddingRight: 0,
-        marginRight: theme.spacing(6),
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
         '&:focus': {
           opacity: 1,
         },
@@ -682,6 +660,23 @@ const overrides = (theme: Theme): Components => ({
       },
     },
   },
+  MuiAvatar: {
+    styleOverrides: {
+      root: {
+        width: theme.spacing(4.5),
+        height: theme.spacing(4.5),
+      },
+    },
+  },
+  MuiTooltip: {
+    styleOverrides: {
+      tooltip: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+        borderRadius: twinTheme`borderRadius.md`,
+      },
+    },
+  },
 });
 
 export default createTheme({
@@ -690,12 +685,20 @@ export default createTheme({
 });
 
 const rteRootStyle = {
-  borderWidth: 2,
-  borderColor: appTheme.palette.grey[500],
+  borderWidth: 1,
+  borderColor: appTheme.palette.grey[300],
   borderRadius: twinTheme`borderRadius.md`,
+  '&.MuiFocused': {
+    borderWidth: 2,
+    borderColor: '#497fe8',
+  },
+  ':focused': {
+    borderWidth: 2,
+    borderColor: '#497fe8',
+  },
 };
 const rteEditorStyle = {
-  height: '250px',
+  height: '300px',
   overflowY: 'hidden',
   marginBottom: '10px',
   marginTop: '1px',

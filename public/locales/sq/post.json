@@ -1,0 +1,26 @@
+{
+  "my posts": "Postimet e mia",
+  "create post title": "Shpall konkurs pune",
+  "post create success": "Konkursi është publikuar me sukses",
+  "post update success": "Konkursi është përditësuar me sukses",
+  "create new post": "Krijo konkurs",
+  "update post title": "Përditëso konkursin",
+  "create post": "Publiko konkursin",
+  "update post": "Përditëso konkursin",
+  "post title": "Titulli",
+  "description": "Përshkrimi & kërkesat e punës",
+  "job category": "Kategoria",
+  "job type": "Orari",
+  "job location": "Lokacioni",
+  "positions": "Pozitat e hapura",
+  "experience": "Eksperienca e kërkuar",
+  "salary": "Paga",
+  "deadline": "Kohëzgjatja e konkursit",
+
+  "post will be deleted": "Postimi do të fshihet. Nëse fshihet, nuk do të mund ta rikuperoni më. Vazhdo?",
+  "post delete success": "Konkursi është fshirë me sukses",
+
+  "search posts": "Kërko postimet...",
+  "active posts": "Postet aktive",
+  "expired posts": "Postet jo-aktive"
+}

@@ -9,11 +9,22 @@ interface GuestGuardProps {
 }
 
 const GuestGuard: FC<GuestGuardProps> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const router = useRouter();
 
   if (isAuthenticated) {
-    router.push('/', '/', { locale: router.locale });
+    if (user) {
+      if (!user.isVerified) {
+        router.push({
+          pathname: '/company/signupsuccess',
+        });
+        return null;
+      }
+
+      router.push('/company', '/company', { locale: router.locale });
+      return null;
+    }
+
     return null;
   }
 

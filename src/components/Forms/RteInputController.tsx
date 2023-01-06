@@ -36,13 +36,24 @@ export function Editor({
   );
 
   const rteToolbarConfig: ToolbarConfig = {
-    display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS'],
+    display: [
+      'INLINE_STYLE_BUTTONS',
+      'BLOCK_TYPE_BUTTONS',
+      'LINK_BUTTONS',
+      'BLOCK_TYPE_DROPDOWN',
+      'HISTORY_BUTTONS',
+    ],
     INLINE_STYLE_BUTTONS: [
       { label: 'Bold', style: 'BOLD', className: 'custom-css-class' },
       { label: 'Italic', style: 'ITALIC' },
       { label: 'Underline', style: 'UNDERLINE' },
     ],
-    BLOCK_TYPE_DROPDOWN: [],
+    BLOCK_TYPE_DROPDOWN: [
+      { label: 'Normal', style: 'unstyled' },
+      { label: 'Heading Large', style: 'header-one' },
+      { label: 'Heading Medium', style: 'header-two' },
+      { label: 'Heading Small', style: 'header-three' },
+    ],
     BLOCK_TYPE_BUTTONS: [
       { label: 'UL', style: 'unordered-list-item' },
       { label: 'OL', style: 'ordered-list-item' },
@@ -50,7 +61,11 @@ export function Editor({
   };
 
   return (
-    <FormControl fullWidth={fullWidth} margin={margin}>
+    <FormControl
+      fullWidth={fullWidth}
+      margin={margin}
+      sx={{ h1: { fontSize: '2rem' }, h2: { fontSize: '1.5rem' }, h3: { fontSize: '1.17rem' } }}
+    >
       <RichTextEditor
         //@ts-ignore
         onBlur={onBlur}
@@ -58,7 +73,10 @@ export function Editor({
         toolbarConfig={rteToolbarConfig}
         placeholder={placeholder}
         className={className}
-        rootStyle={{ ...rteRootStyle, ...(!!errors && { borderColor: theme.palette.error.main }) }}
+        rootStyle={{
+          ...rteRootStyle,
+          ...(!!errors && { borderColor: theme.palette.error.main }),
+        }}
         editorStyle={rteEditorStyle}
         onChange={(value) => {
           setEditorState(value);

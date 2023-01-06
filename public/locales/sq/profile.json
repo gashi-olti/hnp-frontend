@@ -1,0 +1,28 @@
+{
+  "company profile create success": "Profili juaj është krijuar me sukses",
+  "company profile create success notice": "Faleminderit për regjistrimin tuaj.",
+  "company profile create verify email notice": "Ju kemi dërguar një email. Ju lutem konfirmoni regjistrimin tuaj.",
+  "send verification link": "Nuk e pranuat emailin e verifikimit?",
+  "resend verification email": "Ridërgo emailin",
+  "resend again in": "Ridërgo prap brenda",
+  "profile title": "Profili",
+
+  "company information": "Të dhëna rreth kompanisë",
+  "company information description": "Ju lutemi futni disa informacione për kompaninë tuaj. Informacioni i dhënë do t'u shfaqet përdoruesve.",
+
+  "company name": "Emri i Kompanisë",
+  "company number": "Numri i Kompanisë",
+  "company industry": "Industria",
+  "company size": "Madhësia e Kompanisë",
+  "company founded": "Viti i Themelimit",
+  "company website": "Faqja e internetit (ueb sajti)",
+  "company description": "Përshkrimi",
+  "company specialties": "Specializimet",
+  "company logo": "Logoja e kompanisë",
+  "company media": "Imazhe rreth kompanisë. Shto {{ count }} imazhe të tjera",
+
+  "save profile": "Ruaj profilin",
+  "company profile update success": "Profili u përditësua me sukses",
+
+  "account settings": "Cilësimet e llogarisë"
+}
