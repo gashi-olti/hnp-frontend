@@ -61,7 +61,11 @@ export function Editor({
   };
 
   return (
-    <FormControl fullWidth={fullWidth} margin={margin}>
+    <FormControl
+      fullWidth={fullWidth}
+      margin={margin}
+      sx={{ h1: { fontSize: '2rem' }, h2: { fontSize: '1.5rem' }, h3: { fontSize: '1.17rem' } }}
+    >
       <RichTextEditor
         //@ts-ignore
         onBlur={onBlur}
@@ -69,7 +73,10 @@ export function Editor({
         toolbarConfig={rteToolbarConfig}
         placeholder={placeholder}
         className={className}
-        rootStyle={{ ...rteRootStyle, ...(!!errors && { borderColor: theme.palette.error.main }) }}
+        rootStyle={{
+          ...rteRootStyle,
+          ...(!!errors && { borderColor: theme.palette.error.main }),
+        }}
         editorStyle={rteEditorStyle}
         onChange={(value) => {
           setEditorState(value);
