@@ -47,5 +47,7 @@
 
   "no results": "Nuk u gjet asnjë rezultat për kërkimin tuaj.",
   "no results for": "Nuk është gjetur asnjë rezultat për \"{{ query }}\".",
-  "returned results for": "Rezultatet e kthyera për kërkimin \"{{ query }}\"."
+  "returned results for": "Rezultatet e kthyera për kërkimin \"{{ query }}\".",
+
+  "share": "Shpërndaje"
 }
