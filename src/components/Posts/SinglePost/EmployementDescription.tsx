@@ -2,11 +2,15 @@ import { Card, CardContent, Grid, Typography, useMediaQuery, useTheme } from '@m
 
 import { RichText } from '@/components/Common/RichText';
 
+import AboutCompany from './AboutCompany';
+import SharePost from './SharePost';
+
 interface Props {
+  uuid?: string;
   data: string;
 }
 
-export default function EmployementDescription({ data }: Props) {
+export default function EmployementDescription({ uuid, data }: Props) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -29,9 +33,14 @@ export default function EmployementDescription({ data }: Props) {
         </Card>
       </Grid>
       <Grid item xs={12} md={4}>
-        <Card elevation={2}>
-          <CardContent></CardContent>
-        </Card>
+        <Grid container rowSpacing={isMobile ? 2 : 4}>
+          <Grid item xs={12}>
+            <SharePost />
+          </Grid>
+          <Grid item xs={12}>
+            <AboutCompany companyUuid={uuid} />
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   );

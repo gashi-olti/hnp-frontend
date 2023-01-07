@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { PostModel } from '@/interfaces/post.interface';
 import CommonHero from '@/components/Common/CommonHero';
@@ -19,14 +19,12 @@ export default function Hero({ data }: HeroProps) {
         newBadge
       >
         <Stack direction="column" spacing={2}>
-          <div>
+          <div tw="mb-2">
             <Typography variant="h2">{data.title}</Typography>
           </div>
 
-          <Divider />
-
           <Stack direction="column" spacing={1}>
-            <Grid container columnSpacing={4}>
+            <Grid container rowSpacing={2}>
               <EmployementInformation
                 category={data?.category}
                 type={data?.type}
