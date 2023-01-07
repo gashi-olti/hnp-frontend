@@ -2,6 +2,7 @@ import { Box, Grid, Stack, Typography } from '@mui/material';
 
 import { PostModel } from '@/interfaces/post.interface';
 import CommonHero from '@/components/Common/CommonHero';
+import { isNewPost } from '@/utils/functions';
 
 import EmployementInformation from './EmployementInformation';
 
@@ -16,7 +17,7 @@ export default function Hero({ data }: HeroProps) {
         image={data.company?.cover?.src}
         title={data.title}
         altImage={data.company?.cover?.credit}
-        newBadge
+        newBadge={isNewPost(data.created_at)}
       >
         <Stack direction="column" spacing={2}>
           <div tw="mb-2">

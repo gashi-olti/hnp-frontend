@@ -1,4 +1,4 @@
-import { Card, CardContent, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Card, CardContent, Grid, useMediaQuery, useTheme } from '@mui/material';
 
 import { RichText } from '@/components/Common/RichText';
 
@@ -26,9 +26,7 @@ export default function EmployementDescription({ uuid, data }: Props) {
               padding: isMobile ? 2 : 4,
             }}
           >
-            <Typography fontSize="inherit">
-              <RichText text={data} />
-            </Typography>
+            <RichText text={data} />
           </CardContent>
         </Card>
       </Grid>
