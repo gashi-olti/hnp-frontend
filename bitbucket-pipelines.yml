@@ -43,7 +43,7 @@ pipelines:
             enabled: false
           deployment: production
           trigger: manual
-    develop:
+    development:
       - step: *lint-build-step-development
       - step: *upload-build
       - step:
