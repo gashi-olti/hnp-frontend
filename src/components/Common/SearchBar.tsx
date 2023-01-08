@@ -16,9 +16,14 @@ export default function SearchBar({ placeholder = 'Search...', value, setValue }
 
   return (
     <Card
-      elevation={3}
+      elevation={4}
       style={{
         borderRadius: twinTheme`borderRadius.full`,
+      }}
+      sx={{
+        root: {
+          boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 5px 3px, rgba(0, 0, 0, 0.1) 0px 0px 5px 3px',
+        },
       }}
     >
       <InputBase

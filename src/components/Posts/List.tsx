@@ -10,9 +10,9 @@ import { DateTime } from 'luxon';
 import { Images } from '@/components/Icons/Images';
 import { PostModel } from '@/interfaces/post.interface';
 import getJobCategory from '@/config/jobCategory';
-
-import CustomLink from '../CustomLink';
-import NewBadge from '../Common/NewBadge';
+import { isNewPost } from '@/utils/functions';
+import NewBadge from '@/components/Common/NewBadge';
+import CustomLink from '@/components/CustomLink';
 
 const PostImageStyle = styled('img')(() => ({
   width: '100%',
@@ -61,7 +61,16 @@ export default function List({ data }: PostsListProps) {
           display="block"
           minHeight={250}
         >
-          <NewBadge top="16px" left="-160px" fontSize="18px" paddingTop="2px" paddingBottom="2px" />
+          {isNewPost(data?.created_at) && (
+            <NewBadge
+              top="16px"
+              left="-160px"
+              fontSize="18px"
+              paddingTop="2px"
+              paddingBottom="2px"
+            />
+          )}
+
           {data?.company?.cover?.src ? (
             <PostImageStyle src={data?.company?.cover?.src} title={data?.company?.cover?.title} />
           ) : (

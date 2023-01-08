@@ -23,7 +23,7 @@ export default function SinglePost({ post }: SinglePostProps) {
         </Grid>
 
         <Grid item xs={12}>
-          <EmployementDescription data={post.description} />
+          <EmployementDescription uuid={post.company?.uuid} data={post.description} />
         </Grid>
       </Grid>
     </Container>

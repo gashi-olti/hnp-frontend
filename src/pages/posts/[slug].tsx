@@ -33,6 +33,6 @@ export default function Post() {
 
 export const getServerSideProps = async ({ locale }: { locale: any }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common', 'post', 'job'])),
+    ...(await serverSideTranslations(locale, ['common', 'post', 'job', 'company', 'profile'])),
   },
 });

@@ -47,5 +47,7 @@
 
   "no results": "No results is found for your search.",
   "no results for": "No results is found for \"{{ query }}\".",
-  "returned results for": "Returned results for your search \"{{ query }}\"."
+  "returned results for": "Returned results for your search \"{{ query }}\".",
+
+  "share": "Share"
 }
