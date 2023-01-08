@@ -26,7 +26,10 @@ definitions:
           - yarn run build:production
         artifacts:
           - .next/**
-
+    - step: &upload-build
+        name: Upload build
+        script:
+          - echo "No commands to run for upload build step"
 pipelines:
   pull-requests:
       main:
