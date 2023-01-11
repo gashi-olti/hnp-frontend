@@ -9,7 +9,7 @@
     "build": "next build",
     "build:development": "BUILD_ENV=development next build",
     "build:production": "BUILD_ENV=production next build",
-    "start": "next start -p $PORT",
+    "start": "next start -p 3000",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "cert": "mkcert -cert-file ./.keys/local.crt -key-file ./.keys/local.key my-ticket.local '*.my-ticket.local' localhost 127.0.0.1",
