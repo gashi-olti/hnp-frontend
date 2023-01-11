@@ -26,7 +26,10 @@ definitions:
           - yarn run build:production
         artifacts:
           - .next/**
-
+    - step: &upload-build
+        name: Upload build
+        script:
+          - echo "No commands to run for upload build step"
 pipelines:
   pull-requests:
       main:
@@ -43,7 +46,7 @@ pipelines:
             enabled: false
           deployment: production
           trigger: manual
-    develop:
+    development:
       - step: *lint-build-step-development
       - step: *upload-build
       - step:
