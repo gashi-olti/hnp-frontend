@@ -31,14 +31,15 @@ definitions:
         script:
           - zip -r application.zip . -x server.js
           - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.3
-          variables:
-              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-              AWS_DEFAULT_REGION: 'eu-central-1'
-              APPLICATION_NAME: 'hnp-frontend'
-              COMMAND: 'upload-only'
-              ZIP_FILE: 'application.zip'
-              S3_BUCKET: 'hajdenpun'
+        variables:
+            AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+            AWS_DEFAULT_REGION: 'eu-central-1'
+            APPLICATION_NAME: 'hnp-frontend'
+            COMMAND: 'upload-only'
+            ZIP_FILE: 'application.zip'
+            S3_BUCKET: 'hajdenpun'
+
 pipelines:
   pull-requests:
       main:
