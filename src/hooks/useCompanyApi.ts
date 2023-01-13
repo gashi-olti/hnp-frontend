@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 import Api from '@/lib/api';
 import { useNotification } from '@/providers/NotificationProvider';
-import { CompanyProfile } from '@/interfaces/company.interface';
+import { Company } from '@/interfaces/company.interface';
 import { useAuth } from '@/providers/AuthProvider';
 
 export default function useCompanyApi() {
@@ -13,14 +13,14 @@ export default function useCompanyApi() {
     data: company,
     mutate: mutateCompany,
     error,
-  } = useSWR<CompanyProfile>(isAuthenticated ? 'company' : null);
+  } = useSWR<Company>(isAuthenticated ? 'company' : null);
 
   const { t } = useTranslation(['company']);
 
   const { openSnackbar } = useNotification();
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const updateProfile = async (data: CompanyProfile) => {
+  const updateProfile = async (data: Company) => {
     setIsLoading(true);
     try {
       const request = {
@@ -28,7 +28,7 @@ export default function useCompanyApi() {
         media: data.media && data.media.map((media) => ({ ...media })),
       };
 
-      const body: CompanyProfile = await Api.put('company/profile', request);
+      const body: Company = await Api.put('company/profile', request);
       mutateCompany({ ...company, ...body });
 
       openSnackbar(t('profile:company profile update success'));

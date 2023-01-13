@@ -5,7 +5,7 @@ import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import dynamic from 'next/dynamic';
 
-import { CompanyProfile } from '@/interfaces/company.interface';
+import { Company } from '@/interfaces/company.interface';
 import useFormErrors from '@/hooks/useFormErrors';
 import InputController from '@/components/Forms/InputController';
 import LoadingButton from '@/components/LoadingButton';
@@ -24,7 +24,7 @@ const ReactRTE = dynamic(() => import('@/components/Forms/RteInputController'), 
 });
 
 type ProfileFormProps = {
-  company?: CompanyProfile;
+  company?: Company;
 };
 
 export default function ProfileForm({ company }: ProfileFormProps) {
