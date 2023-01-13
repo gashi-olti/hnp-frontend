@@ -29,7 +29,16 @@ definitions:
     - step: &upload-build
         name: Upload build
         script:
-          - echo "No commands to run for upload build step"
+          - zip -r application.zip . -x server.js
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.3
+          variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: 'eu-central-1'
+              APPLICATION_NAME: 'hnp-frontend'
+              COMMAND: 'upload-only'
+              ZIP_FILE: 'application.zip'
+              S3_BUCKET: 'hajdenpun'
 pipelines:
   pull-requests:
       main:
@@ -46,6 +55,15 @@ pipelines:
             enabled: false
           deployment: production
           trigger: manual
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:0.5.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                COMMAND: 'deploy-only'
+                APPLICATION_NAME: 'hnp-frontend'
+                ENVIRONMENT_NAME: 'hnp-frontend-prod'          
     development:
       - step: *lint-build-step-development
       - step: *upload-build
@@ -54,3 +72,13 @@ pipelines:
           clone:
             enabled: false
           deployment: staging
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:0.5.0
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: 'eu-central-1'
+                COMMAND: 'deploy-only'
+                APPLICATION_NAME: 'hnp-frontend'
+                ENVIRONMENT_NAME: 'hnp-frontend-dev'
+                WAIT: 'true'          
