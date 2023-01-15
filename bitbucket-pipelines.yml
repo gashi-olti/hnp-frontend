@@ -29,6 +29,13 @@ definitions:
     - step: &upload-build
         name: Upload build
         script:
+          - echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+          - echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"
+          - echo "AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION"
+          - echo "APPLICATION_NAME: $APPLICATION_NAME"
+          - echo "COMMAND: $COMMAND"
+          - echo "ZIP_FILE: $ZIP_FILE"
+          - echo "S3_BUCKET: $S3_BUCKET"
           - zip -r application.zip . -x server.js
           - pipe: atlassian/aws-elasticbeanstalk-deploy:0.2.3
         variables:
