@@ -34,11 +34,12 @@ definitions:
         variables:
             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-            AWS_DEFAULT_REGION: 'eu-central-1'
+            AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
             APPLICATION_NAME: 'hnp-frontend'
             COMMAND: 'upload-only'
             ZIP_FILE: 'application.zip'
             S3_BUCKET: 'hajdenpun-bucket'
+            VERSION_LABEL: 'hnp-frontend-source'
 
 pipelines:
   pull-requests:
