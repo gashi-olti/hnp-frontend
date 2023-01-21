@@ -38,7 +38,7 @@ definitions:
             APPLICATION_NAME: 'hnp-frontend'
             COMMAND: 'upload-only'
             ZIP_FILE: 'application.zip'
-            S3_BUCKET: 'hajdenpun-bucket'
+            S3_BUCKET: 'hnp-frontend-bucket'
             VERSION_LABEL: 'hnp-frontend-source'
 
 pipelines:
