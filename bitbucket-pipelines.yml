@@ -30,7 +30,7 @@ definitions:
         name: Upload build
         script:
           - zip -r application.zip . -x server.js
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:0.5.0
         variables:
             AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
             AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
@@ -39,7 +39,8 @@ definitions:
             COMMAND: 'upload-only'
             ZIP_FILE: 'application.zip'
             S3_BUCKET: 'hnp-frontend-bucket'
-            VERSION_LABEL: 'hnp-frontend-source'
+            S3_KEY: 'environment_prod'
+            VERSION_LABEL: 'deploy-$BITBUCKET_BUILD_NUMBER-multiple'
 
 pipelines:
   pull-requests:
@@ -58,7 +59,7 @@ pipelines:
           deployment: production
           trigger: manual
           script:
-            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:0.5.0
               variables:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
@@ -75,7 +76,7 @@ pipelines:
             enabled: false
           deployment: staging
           script:
-            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:0.5.0
               variables:
                 AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
                 AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
