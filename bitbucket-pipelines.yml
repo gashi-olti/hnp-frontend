@@ -26,12 +26,7 @@ definitions:
           - yarn run build:production
         artifacts:
           - .next/**
-    - step: &upload-build
-        name: Upload build
-        script:
-          - zip -r application.zip . -x server.js
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
-        variables:
+    
 
 pipelines:
   pull-requests:
