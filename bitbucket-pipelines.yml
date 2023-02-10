@@ -1,0 +1,72 @@
+image: atlassian/default-image:2
+
+definitions:
+  steps:
+    - step: &lint-only-step
+        name: Lint application only
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+    - step: &lint-build-step-development
+        name: Lint & build application development
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+          - yarn run build:development
+        artifacts:
+          - .next/**
+    - step: &lint-build-step-production
+        name: Lint & build application production
+        script:
+          - nvm install && npm i -g yarn
+          - yarn
+          - yarn run lint
+          - yarn run build:production
+        artifacts:
+          - .next/**
+    
+pipelines:
+  pull-requests:
+      main:
+        - step: *lint-build-step-production
+      '**':
+        - step: *lint-build-step-development
+  branches:
+    main:
+      - step: *lint-build-step-production
+      - step: *upload-build
+      - step:
+          name: 'Deploy to Production'
+          clone:
+            enabled: false
+          deployment: production
+          trigger: manual
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                COMMAND: 'deploy-only'
+                APPLICATION_NAME: 'hnp-frontend'
+                ENVIRONMENT_NAME: 'hnp-frontend-prod'          
+    development:
+      - step: *lint-build-step-development
+      - step: *upload-build
+      - step:
+          name: 'Deploy to Staging'
+          clone:
+            enabled: false
+          deployment: staging
+          script:
+            - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                COMMAND: 'deploy-only'
+                APPLICATION_NAME: 'hnp-frontend'
+                ENVIRONMENT_NAME: 'hnp-frontend-dev'
+                WAIT: 'true'    
