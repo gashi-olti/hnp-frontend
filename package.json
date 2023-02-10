@@ -12,7 +12,7 @@
     "start": "next start -p 3000",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
-    "cert": "mkcert -cert-file ./.keys/local.crt -key-file ./.keys/local.key my-ticket.local '*.my-ticket.local' localhost 127.0.0.1",
+    "cert": "mkcert -cert-file ./.keys/local.crt -key-file ./.keys/local.key my-ticket.local '*.hajdenpun.local' localhost 127.0.0.1",
     "prepare": "husky install"
   },
   "dependencies": {
